@@ -1,0 +1,787 @@
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body{
+  color: white;
+  background-color: black;
+  
+}
+
+a{
+  text-decoration: none;
+  color: unset;
+}
+
+.container{
+  width: 80%;
+  margin: auto;
+}
+
+
+
+/*    SignIn and SignUp    */
+
+.sign-in, .sign-up{
+  display: block;
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(23, 23, 23);
+  padding: 50px 35% 0;
+  margin: auto;
+}
+
+.sign-in h1, .sign-up h1{
+  font-size: 33px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.google-auth{
+  height: 45px;
+  display: block;
+  border: none;
+  transition: 0.3s;
+  font-size: 16px;
+  width: 100%;
+  color: white;
+  background-color: blue;
+  border-radius: 30px;
+  margin-bottom: 30px;
+}
+
+.google-auth:hover{
+  cursor: pointer;
+  background-color: rgb(62, 62, 172);
+}
+
+.sign-in form, .sign-up form{
+  width: 100%;
+}
+
+.sign-in input, .sign-up input{
+  padding: 0 15px;
+  height: 45px;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
+  border-style: solid;
+  border-color: #cccccc;
+  border-width: 1.5px;
+  border-radius: 30px;
+}
+.sign-in .submit, .sign-up .submit{
+  background-color: blue;
+  height: 45px;
+  border: none;
+  transition: 0.3s;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  padding: 0 35px;
+  color: white;
+  border-radius: 30px;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.sign-in .submit:hover, .sign-up .submit:hover{
+  cursor: pointer;
+  background-color: rgb(62, 62, 172);
+}
+
+.sign-in p, .sign-up p{
+  text-align: center;
+  font-size: 16px;
+}
+
+
+.or {
+  position: relative; 
+  display: inline-block;
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%; 
+}
+
+.or::before, .or::after {
+  content: ""; 
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%); 
+  height: 1px; 
+  background-color: #cccccc; 
+  width: 42%; 
+}
+
+.or::before {
+  left: 0; 
+  margin-right: 10px; 
+}
+
+.or::after {
+  right: 0; 
+  margin-left: 10px;
+}
+
+.sign-in form div, .sign-up form div{
+  position: relative;
+}
+
+.show, .hide{
+  top: 22.5px;
+  right: 15px;
+  transform: translateY(-50%);
+  position: absolute;
+  cursor: pointer;
+}
+
+.google{
+  margin-right: 15px;
+}
+
+.err-msg{
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+  background-color: blue;
+  font-size: 14px;
+}
+
+
+
+
+/*   Header   */
+
+.header{
+  padding: 0 5%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  background-color: rgb(23, 23, 23);
+  width: 100%;
+}
+
+.logo{
+  display: inline-block;
+  border: 1px solid white;
+  width: 60px;
+  margin-right: 30px;
+}
+
+.search {
+  display: inline-block;
+  width: 50%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search input{
+  height: 45px;
+  color: white;
+  outline: none;
+  width: 100%;
+  background-color: black;
+  padding-left: 50px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: 1px rgb(149, 149, 149) solid;
+}
+
+.search .search-icon{
+  position: absolute;
+  font-size: 21px;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header-links{
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+  float: right;
+}
+
+.header-links .create-post{
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid blue;
+  font-size: 16px;
+  color: blue;
+  display: inline-block;
+  padding: 10px 25px;
+}
+
+.header-links figure{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  vertical-align: middle;
+  border-radius: 50%;
+  margin-left: 10px;
+  border: 1px solid white;
+}
+
+.header-links .prof-menu{
+  color: #B5B5B5;
+  position: absolute;
+  background-color: rgb(23, 23, 23);
+  z-index: 2;
+  right: 0;
+  top: 55px;
+  width: 190px;
+  border-radius: 10px;
+}
+
+.header-links .prof-menu ul{
+  list-style: none;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.header-links .prof-menu ul li{
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: 0.2s background-color;
+}
+
+.header-links .prof-menu ul li:hover{
+  background-color: blue;
+  color: white;
+}
+
+.header-links .prof-menu a{
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-links .sign-out{
+  background: transparent;
+  border: none;
+  color: #B5B5B5;
+  font-size: inherit;
+}
+
+.auth{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  float: right;
+}
+
+.auth a{
+  display: inline-block;
+  border-radius: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  margin-left: 10px;
+  color: white;
+  padding: 10px 25px;
+  background-color: blue;
+}
+
+.auth .sign-in-btn{
+  border: 1px solid blue;
+  background-color: white;
+  color: blue;
+}
+
+.open, .close{
+  display: none;
+}
+
+
+/*   Home   */
+
+.home, .categ-results, .search-results{
+  padding-top: 100px;
+  display: inline-block;
+  width: 70%;
+  margin-right: 1%;
+}
+
+.no-posts{
+  margin-top: 10px;
+}
+
+.page-label{
+  border-radius: 7px;
+  display: inline-block;
+  background-color: rgb(23, 23, 23);
+  font-size: 22px;
+  margin-bottom: 25px;
+  padding: 8px 15px;
+}
+
+
+/*   Post Component   */
+
+.post{
+  padding: 15px;
+  background-color: rgb(23, 23, 23);
+  border-radius: 7px;
+  margin-bottom: 7px;
+}
+
+
+.post .top-row{
+  margin-bottom: 15px;
+}
+
+.post .top-row figure{
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.post .top-row span{
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.post .top-row figure img{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.post .post-info h2{
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.post .top-row .date{
+  font-size: 15px;
+}
+
+.post .top-row .date{
+  font-size: 13px;
+}
+
+.post .bottom-row span{
+  font-size: 14px;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+.post .post-info h2{
+  margin-bottom: 15px;
+}
+
+.post .post-info p{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.post .bottom-row .categ{
+  font-size: 14px;
+  color: #B5B5B5;
+  padding: 8px 20px;
+  background-color: rgb(42 42 42);
+  border: 1px solid transparent;
+  border-radius: 23px;
+}
+
+.post .bottom-row .categ:hover{
+  color: white;
+  border: 1px rgb(149, 149, 149) solid;
+}
+
+/*   Sidebar   */
+.side-bar{
+  width: 29%;
+  vertical-align: top;
+  display: inline-block;
+  padding-top: 100px;
+}
+
+
+/*   Category Select   */
+
+.categories{
+  margin-bottom: 30px;
+  padding: 15px;
+  border-radius: 7px;
+  background-color: rgb(23, 23, 23);
+}
+
+.categories h1{
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+.categories a{
+  display: inline-block;
+  font-size: 15px;
+  color: #B5B5B5;
+  padding: 8px 20px;
+  background-color: rgb(42 42 42);
+  margin-right: 10px;
+  border: 1px solid transparent;
+  border-radius: 23px;
+  margin-bottom: 10px;
+}
+
+.categories a:hover{
+  color: white;
+  border: 1px rgb(149, 149, 149) solid;
+}
+
+
+/*   Popular posts  and User search */
+
+.popular, .user-search{
+  border-radius: 7px;
+  padding: 15px;
+  padding-bottom: 0;
+  background-color: rgb(23, 23, 23);
+}
+
+
+.popular h1, .user-search h1{
+  font-size: 22px;
+  margin-bottom: 35px;
+}
+
+.popular .post{
+  border-radius: 0;
+  border-top: 2px solid black;
+}
+
+.user-search{
+  padding-bottom: 15px;
+}
+.user-search h3{
+  font-size: 17px;
+}
+
+
+
+/*   Post page   */
+.post-page{
+  width: ;
+}
+
+
+
+/* RESPONSIVE CODE*/
+
+/*   SignIn and SignUp   */
+
+@media screen and (max-width: 1200px){
+
+  .sign-in, .sign-up{
+    padding-top: 40px;
+    padding: 50px 32.5% 0;
+  }
+
+  .google-auth{
+    height: 40px;
+    font-size: 15px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+  }
+
+  .or{
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  .sign-in input, .sign-up input{
+    height: 40px;
+    border-radius: 25px;
+  }
+
+  .sign-in .submit, .sign-up .submit{
+    height: 40px;
+    border-radius: 25px;
+    font-size: 15px;
+  }
+
+  .sign-in p, .sign-up p{
+    font-size: 15px; 
+  }
+
+  .show, .hide{
+    top: 20px;
+    width: 17px;
+  }
+
+  .err-msg{
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .header{
+    height: 60px;
+  }
+
+  .logo{
+    width: 50px;
+  }
+  .logo a{
+    width: 100%;
+    height: 100%;
+  }
+
+  .search input{
+    font-size: 15px;
+    height: 40px;
+  }
+
+  .search .search-icon{
+    font-size: 20px;
+  }
+
+  .header-links figure{
+    width: 40px;
+    height: 40px;
+  }
+  
+  .header-links .create-post{
+    padding: 9px 20px;
+  }
+
+  .header-links .prof-menu{
+    width: 160px;
+  }
+
+  .header-links .prof-menu ul li{
+    padding: 7px 12px;
+    font-size: 14px;
+  }
+
+  .auth a{
+    padding: 9px 22px;
+  }
+
+  .header-links .prof-menu{
+    top: 50px;
+  }
+
+  .page-label{
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .post .post-info h2{
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .post .post-info p{
+    font-size: 15px;
+    line-height: 25px;
+    margin-bottom: 8px;
+  }
+
+  .post .bottom-row .categ{
+    padding: 7px 15px;
+  }
+
+  .categories h1{
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .categories a{
+    padding: 7px 15px;
+  }
+
+  .popular h1{
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 900px){
+  .sign-in, .sign-up{
+    padding: 50px 30% 0;
+  }
+
+  .sign-in h1, .sign-up h1{
+    font-size: 28px;
+    margin-bottom: 50px;
+  }
+
+  .google-auth{
+    height: 35px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+  
+  .or{
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .sign-in input, .sign-up input{
+    height: 35px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    border-radius: 20px;
+  }
+
+  .sign-in .submit, .sign-up .submit{
+    height: 35px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+  .sign-in p, .sign-up p{
+    font-size: 14px;
+  }
+
+  .show, .hide{
+    top: 17.5px;
+  }
+
+  .google{
+    width: 13px;
+    margin-right: 10px;
+  }
+
+  .header{
+    padding: 0 2.5%;
+    height: 50px;
+  }
+
+  .search .search-icon{
+      font-size: 18px;
+  }
+
+  .header-links .create-post{
+    padding: 8px 20px;
+    font-size: 15px;
+  }
+
+  .auth a{
+    padding: 8px 20px;
+    font-size: 15px;
+  }
+
+  .header-links .prof-menu{
+    top: 45px;
+  }
+
+  .page-label{
+    font-size: 18px;
+  }
+
+  .post .post-info p{
+    font-size: 14px;
+    line-height: 23px;
+    margin-bottom: 5px;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 700px){
+
+  .sign-in, .sign-up{
+    padding: 50px 5% 0;
+
+  }
+
+  .sign-in h1, .sign-up h1{
+    font-size: 25px;
+    line-height: 30px;
+  }
+  
+  .google-auth{
+    font-size: 13px;
+  }
+
+  .or{
+    font-size: 12px;
+  }
+
+  .sign-in input, .sign-up input{
+    font-size: 12px;
+  }
+
+  .show, .hide{
+    width: 15px;
+  }
+
+  .sign-in .submit, .sign-up .submit{
+    font-size: 13px;
+  }
+  
+  .sign-in p, .sign-up p{
+    font-size: 13px;  
+  }
+
+  .err-msg{
+    font-size: 12px;
+    padding: 6px 15px;
+  }
+
+  .search{
+    position: absolute;
+    top: 100%;
+    transform: none;
+    left: 0;
+    width: 100%;
+    padding: 10px 2.5%;
+  }
+
+  .search input{
+    width: 100%;
+    padding-left: 15px;
+  }
+
+  .search .search-icon{
+    left: 70px;
+    top: -25px;
+  }
+
+  .home, .categ-results, .search-results{
+    display: block;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .side-bar{
+    display: block;
+    padding-top: 50px;
+    width: 100%;
+  }
+
+  .categories{
+    display: none;
+  }
+
+  .container{
+    width: 90%;
+  }
+
+
+}
