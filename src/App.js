@@ -16,8 +16,8 @@ import CreatePost from './components/createPost';
 import PostPage from './components/postPage';
 import ErrorMessage from './components/errorMessage';
 import Dashboard from './components/dashboard';
-
-
+import Comments from './components/comments';
+import Profile from './components/profile';
 
 import { selectAllPosts } from './features/allPosts/allPostsSlice';
 import { useSelector } from 'react-redux';
@@ -78,7 +78,9 @@ function App() {
             <Route path='search/:searchTerm' element={<SearchResults fetchAuthor={fetchAuthor} showError= {showError}/>}/>
             <Route path='category/:category' element={<CategPosts fetchAuthor={fetchAuthor} />}/>
             <Route path='post/:postTitle' element={<PostPage fetchAuthor={fetchAuthor}/>}/>
+            <Route path='create' element={<CreatePost/>}/>
             <Route path='dashboard' element={<Dashboard/>}/>
+            <Route path='user/:username' element={<Profile/>}/>
           </Route>
         </Routes>
     </Router>
@@ -91,7 +93,7 @@ function Layout() {
   return (
       <>
           <Header />
-          <Outlet /> {/* This is where nested routes will render */}
+          <Outlet /> 
       </>
   );
 }

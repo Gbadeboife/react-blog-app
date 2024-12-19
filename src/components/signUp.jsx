@@ -106,6 +106,7 @@ function SignUp({showError}){
 
             const user= {
                 name: name,
+                username: name.split(" ").join(""),
                 email: email
             }
 

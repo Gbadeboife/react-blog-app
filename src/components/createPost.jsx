@@ -1,13 +1,15 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "../features/categories/categoriesSlice";
 import { selectUser } from "../features/user/userSlice";
 import { setUser } from "../features/user/userSlice";
+
 import { db } from "../firebase-config";
 import {collection, addDoc, getDocs} from "firebase/firestore"
 
-
+import MDEditor from '@uiw/react-md-editor';
 
 
 function CreatePost(){
@@ -73,7 +75,6 @@ function CreatePost(){
             }
             try{
                 await addDoc(postsCollectionRef, post)
-                console.log('done')
             } catch {
                 showError('An error occurred, try again!')
             }

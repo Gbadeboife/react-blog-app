@@ -112,7 +112,7 @@ function Header(){
                 isAuth?
                 (
                     <div className="header-links">
-                        <Link to='/create-post' className="create-post">Create Post</Link>
+                        <Link to='/create' className="create-post">Create Post</Link>
                         <figure onClick={()=> setMenuOpen(!menuOpen)} ref={menuRef}>
                             <img src="" alt="" />
                             

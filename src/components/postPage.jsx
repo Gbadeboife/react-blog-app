@@ -10,13 +10,13 @@ import { doc, updateDoc, increment, arrayUnion, arrayRemove } from 'firebase/fir
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faComment } from "@fortawesome/free-solid-svg-icons";
 
+import MDEditor from '@uiw/react-md-editor';
+import MarkdownEditor from './markdownEditor';
+
+import Comments from "./comments";
 
 
-
-import Header from "./header";
-
-
-function PostPage({ fetchAuthor }) {
+function PostPage({ fetchAuthor, showError }) {
     const [isLoading, setIsLoading] = useState(true);
     const [loadError, setLoadError] = useState(false);
     const [post, setPost] = useState(null);
@@ -109,67 +109,45 @@ function PostPage({ fetchAuthor }) {
     }
 
     return (
+
             <section className="post-page">
-                <article className="post-body">
-                    <header className="post-header">
+                <header className="post-header">
 
-                        <h1>{post.title}</h1>
+                    <h1>{post.title}</h1>
 
-                        <Link to={`/category/${post.category}`}> 
-                            {post.category}
-                        </Link>
+                    <Link to={`/category/${post.category}`} className="post-categ">{post.category}</Link>
 
-                        <figure className="post-image">
+                    <figure className="post-image">
+                        <img/>
+                    </figure>
+
+                    <div className="author-info">
+                        <Link to={`/${author?.username}`}>
                             <img/>
-                        </figure>
-
-                        <div className="author-info">
-                            <Link to={`/${author?.username}`}>
-                                <figure className="author-avatar">
-                                    <img/>
-                                </figure>
-                                <div className="author-details">
-                                    <h5>{author?.name}</h5>
-                                </div>
-                            </Link>
-                        </div>
-
-                        <div className="post-metadata">
-                            <span>{post.publishDate}</span>
-                            <div className="post-stats">
-                                <FontAwesomeIcon icon={faComment} /> {post.commentIds?.length || 0} Comments
-                                <FontAwesomeIcon icon={faHeart} /> {post.likedBy?.length || 0} Comments
-                            </div>
-                        </div>
-                    </header>
-
-
-                    <div className="post-content">
-
-
-                        <div className="post-text">
-                            {post.content}
-                        </div>
-
-                        {/* Post Actions */}
-                        <div className="post-actions">
-                            <button 
-                                onClick={handleLike} 
-                                className={`like-btn ${isLiked ? 'liked' : ''}`}
-                            >
-                                <FontAwesomeIcon icon={faHeart} /> 
-                                {post.likedBy?.length || 0} Likes
-                            </button>
-                        </div>
+                            <h5>{author?.name}</h5>
+                        </Link>
                     </div>
 
-                    {/* Comments Section */}
+                    <div className="post-metadata">
+                        <span>{post.publishDate}</span>
+                        <div className="post-stats">
+                            <FontAwesomeIcon icon={faHeart} /> {post.likedBy?.length || 0} Likes
+                            <FontAwesomeIcon icon={faComment} /> {post.commentIds?.length || 0} Comments
+                        </div>
+                    </div>
+                </header>
 
-                </article>
 
+                <div className="post-content">
+                    <div className="post-text">
+                        <MDEditor.Markdown source={post.content} />
+                    </div>
+                </div>
 
-            </section>
+            {post && <Comments commentIds={post.commentIds} showError={showError}/>}
+            
         
+            </section>
     );
 }
 

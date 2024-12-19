@@ -478,8 +478,83 @@ a{
 
 /*   Post page   */
 .post-page{
-  width: ;
+  width: 60%;
+  border: 1px solid white;
+  margin: auto;
+  padding-top: 100px;
 }
+
+.post-header{
+  margin-bottom: 30px;
+}
+
+.post-header h1{
+  font-size: 60px;
+  line-height: 70px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.post-header .post-categ{
+  padding: 5px 12px;
+  font-size: 15px;
+  position: relative;
+  left: 50%;
+  z-index: -1;
+  display: inline-block;
+  transform: translateX(-50px);
+  background-color: grey;
+  border-radius: 14px;
+  margin-bottom: 40px;
+}
+
+.post-header .post-image img{
+  width: 100%;
+  margin-bottom: 40px;
+  height: 300px;
+  border: 1px solid white;
+}
+
+.post-header .author-info{
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.post-header .author-info img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.post-header .author-info h5{
+  font-size: 17px;
+  display: inline-block;
+}
+
+.post-header .post-metadata{
+  text-align: center;
+}
+
+/*   Markdown Editor   */
+.markdown-editor {
+  width: 100%;
+  max-width: 800px;
+  margin: 1rem auto;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.w-md-editor-toolbar {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+
+.w-md-editor-content {
+  min-height: 200px;
+}
+
 
 
 

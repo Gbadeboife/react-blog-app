@@ -1,25 +1,28 @@
-import React, {useState, useRef, useEffect} from "react";
-
+import React, {useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
 import { db } from "../firebase-config";
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
+import { useSelector } from "react-redux";
+import { selectAllPosts } from "../features/allPosts/allPostsSlice";
+
 function Profile(){
 
-    const {username}= useRef()
+    const {username}= useParams()
     const [user, setUser]= useState()
     const [posts, setPosts]= useState()
     
-    const allPosts= useSelector(selectAllPosts)
-    
+    const allPosts= useSelector(selectAllPosts).posts
 
 
     useEffect(() => {
         const fetchUser = async () => {
+
             try {
                 const userQuery = query(
                     collection(db, 'users'), 
                     where('username', '==', username)
-                );
+                )
                 
                 const querySnapshot = await getDocs(userQuery);
                 
@@ -30,6 +33,7 @@ function Profile(){
                         userId: userDoc.id, 
                         ...userDoc.data()
                     });
+                    console.log('sjhdjk')
                 } else {
                     // Handle case where no user is found
                     setUser(null);
@@ -62,13 +66,13 @@ function Profile(){
             </figure>
 
             <div className="user-info">
-                <h1>{user.name}</h1>
-                <h3>{user.bio}</h3>
-                <span>Joined on {user.date}</span>
+                <h1>{user?.name}</h1>
+                <h3>{user?.bio}</h3>
+                <span>Joined on {user?.date}</span>
             </div>
 
             <div>
-                {posts.map((post)=>{
+                {posts?.map((post)=>{
                    (
                     <div className="post">
                         
