@@ -559,6 +559,22 @@ a{
 }
 
 
+/*   Create post   */
+
+.create-post{
+  width: 60%;
+  margin: auto;
+}
+.create-post .post-title input{
+  width: 100%;
+  outline: none;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+}
+
 /*   Markdown Editor   */
 .markdown-editor {
   width: 100%;
