@@ -152,7 +152,7 @@ function PostPage({ fetchAuthor, showError }) {
                         </div>
                     ) : (
                         <div className="post-text">
-                            <MDEditor.Markdown source={post.content} />
+                            {post.content}
                         </div>
                     )}
                 </div>
