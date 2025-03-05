@@ -819,6 +819,9 @@ a{
     font-size: 35px;
     line-height: 40px;
   }
+  .post-header .author-info{
+    margin-bottom: 5px;
+  }
 
   .post-header .post-categ{
     padding: 4px 10px;
@@ -826,6 +829,18 @@ a{
     margin-bottom: 20px;
   }
 
+  .post-header .author-info img{
+    width: 30px;
+    height: 30px;
+  }
+
+  .post-header .author-info h5{
+    font-size: 15px;
+  }
+
+  .post-header .post-metadata{
+    font-size: 14px;
+  }
 }
 
 
