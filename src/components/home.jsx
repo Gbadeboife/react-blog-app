@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 import Header from "./header";
 import CategorySelect from "./categorySelect";
@@ -16,9 +16,6 @@ import { Link } from "react-router-dom";
 
 function Home({fetchAuthor}){
     
-    useEffect(async()=>{
-        const author= await fetchAuthor(post.authorId)
-    },[])
     const posts= useSelector(selectAllPosts).posts
     console.log(posts)
     const savePost= (postId)=>{
@@ -38,10 +35,17 @@ function Home({fetchAuthor}){
                             <Link key={index} to={`/post/${post.title}`}>
                                 <div className="post">
                                     <div className="top-row">
-                                        
-                                        <figure>
-                                            <img src={author.img} alt="" />
-                                        </figure>
+                                        {
+
+                                        post.authorImg? (
+                                            <figure>
+                                                <img src={post.authorImg} alt="" />
+                                            </figure>
+                                        ) : (
+                                            <div className="avatar">
+                                                {post.author?.charAt(0).toUpperCase()}
+                                            </div>
+                                        )}
 
                                         <span className="name">{post.author}</span>
                                         
@@ -60,8 +64,6 @@ function Home({fetchAuthor}){
                                                     <img src="" alt=""/>
                                                 </figure>
                                         }
-
-
                                     </div>
 
                                     <div className="bottom-row">
@@ -72,7 +74,6 @@ function Home({fetchAuthor}){
 
                                 </div>
                             </Link>
-
                         )
                     })
                 }
