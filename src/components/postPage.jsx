@@ -18,6 +18,7 @@ import Comments from "./comments";
 
 function PostPage({ fetchAuthor, showError }) {
     const [isLoading, setIsLoading] = useState(true);
+    const [contentLoading, setContentLoading] = useState(true);
     const [loadError, setLoadError] = useState(false);
     const [post, setPost] = useState(null);
     const [author, setAuthor] = useState(null);
@@ -58,6 +59,11 @@ function PostPage({ fetchAuthor, showError }) {
                 setPost(foundPost);
                 setAuthor(authorDetails);
                 setIsLoading(false);
+                
+                // Simulate content loading
+                setTimeout(() => {
+                    setContentLoading(false);
+                }, 1000);
             } catch (error) {
                 console.error('Error loading post:', error);
                 setLoadError(true);
@@ -139,9 +145,16 @@ function PostPage({ fetchAuthor, showError }) {
 
 
                 <div className="post-content">
-                    <div className="post-text">
-                        <MDEditor.Markdown source={post.content} />
-                    </div>
+                    {contentLoading ? (
+                        <div className="loading-container">
+                            <div className="spinner"></div>
+                            <p>Loading content...</p>
+                        </div>
+                    ) : (
+                        <div className="post-text">
+                            <MDEditor.Markdown source={post.content} />
+                        </div>
+                    )}
                 </div>
 
             {post && <Comments commentIds={post.commentIds} showError={showError}/>}
