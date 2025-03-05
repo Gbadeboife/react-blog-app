@@ -554,6 +554,10 @@ a{
   text-align: center;
 }
 
+.post-header .post-metadata span{
+  margin-right: 10px;
+}
+
 
 /*   Markdown Editor   */
 .markdown-editor {
@@ -704,6 +708,20 @@ a{
     font-size: 20px;
     margin-bottom: 20px;
   }
+
+  .post-page{
+    width: 80%;
+  }
+
+  .post-header h1{
+    font-size: 45px;
+    line-height: 50px;
+    margin-bottom: 15px;
+  }
+
+  .post-header .post-categ{
+    margin-bottom: 30px;
+  }
 }
 
 
@@ -791,6 +809,23 @@ a{
     line-height: 23px;
     margin-bottom: 5px;
   }
+
+  .post-page{
+    width: 85%;
+    padding-top: 50px;
+  }
+
+  .post-header h1{
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  .post-header .post-categ{
+    padding: 4px 10px;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
 }
 
 
