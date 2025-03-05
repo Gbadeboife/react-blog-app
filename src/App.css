@@ -927,5 +927,26 @@ a{
     width: 90%;
   }
 
+  .post-header h1{
+    font-size: 30px;
+    line-height: 35px;
+  }
 
+  .post-header .post-categ{
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  .post-page{
+    width: 95%;
+  }
+
+  
+  .post-header .author-info h5{
+    font-size: 14px;
+  }
+
+  .post-header .post-metadata{
+    font-size: 13px;
+  }
 }
