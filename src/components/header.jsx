@@ -87,8 +87,7 @@ function Header(){
 
             <figure className="logo">
                 <Link to='/'>
-                fejk
-                    <img src="" alt="" />
+                    Bloggr
                 </Link>
             </figure>
 
