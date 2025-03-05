@@ -177,9 +177,19 @@ a{
 
 .logo{
   display: inline-block;
-  border: 1px solid white;
-  width: 60px;
+  width: auto;
+  height: 100%;
   margin-right: 30px;
+}
+
+.logo a{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 30px;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+  font-weight: 700;
 }
 
 .search {
@@ -615,6 +625,7 @@ a{
   }
   .logo a{
     width: 100%;
+    font-size: 40px;
     height: 100%;
   }
 

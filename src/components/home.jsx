@@ -51,9 +51,13 @@ function Home({fetchAuthor}){
                                                 <p>{post.content.slice(0,150)}</p>
                                         </div>
 
-                                        <figure className="post-img">
-                                            <img src="" alt="" />
-                                        </figure>
+                                        {
+                                            post.image && 
+                                                <figure className="post-img">
+                                                    <img src="" alt="" />
+                                                </figure>
+                                        }
+
 
                                     </div>
 
