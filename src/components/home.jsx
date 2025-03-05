@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 import Header from "./header";
 import CategorySelect from "./categorySelect";
@@ -16,8 +16,10 @@ import { Link } from "react-router-dom";
 
 function Home({fetchAuthor}){
     
+    useEffect(async()=>{
+        const author= await fetchAuthor(post.authorId)
+    },[])
     const posts= useSelector(selectAllPosts).posts
-    
     console.log(posts)
     const savePost= (postId)=>{
         console.log('saved')
@@ -36,8 +38,9 @@ function Home({fetchAuthor}){
                             <Link key={index} to={`/post/${post.title}`}>
                                 <div className="post">
                                     <div className="top-row">
+                                        
                                         <figure>
-                                            <img src="" alt="" />
+                                            <img src={author.img} alt="" />
                                         </figure>
 
                                         <span className="name">{post.author}</span>
@@ -54,7 +57,7 @@ function Home({fetchAuthor}){
                                         {
                                             post.image && 
                                                 <figure className="post-img">
-                                                    <img src="" alt="" />
+                                                    <img src="" alt=""/>
                                                 </figure>
                                         }
 
