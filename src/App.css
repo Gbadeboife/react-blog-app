@@ -567,12 +567,33 @@ a{
 }
 .create-post .post-title input{
   width: 100%;
+  border: none;
+  background-color: #333;
   outline: none;
-  padding: 10px;
-  font-size: 20px;
+  padding: 10px 20px;
+  font-size: 50px;
   margin-bottom: 20px;
   border-radius: 10px;
-  border: 1px solid #cccccc;
+}
+
+.create-post .select-categ input{
+  padding: 3px 5px;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  
+}
+.create-post .categories{
+  display: flex;
+  
+}
+.create-post .categories button{
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: blue;
+  color: white;
 }
 
 /*   Markdown Editor   */
@@ -591,6 +612,22 @@ a{
 
 .w-md-editor-content {
   min-height: 200px;
+}
+
+
+.create-post .post-content {
+  margin: 20px 0;
+}
+
+.create-post .post-content .w-md-editor {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.create-post .post-content .w-md-editor-text-pre > code,
+.create-post .post-content .w-md-editor-text-input {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
 }
 
 

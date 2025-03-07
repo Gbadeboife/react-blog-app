@@ -10,7 +10,8 @@ import { db } from "../firebase-config";
 import {collection, addDoc, getDocs} from "firebase/firestore"
 
 import MDEditor from '@uiw/react-md-editor';
-
+import '@uiw/react-md-editor/markdown-editor.css';
+import '@uiw/react-markdown-preview/markdown.css';
 
 function CreatePost(){
     const [errMessage, setErrMessage]= useState('')
@@ -101,14 +102,14 @@ function CreatePost(){
     }
     
     return(
-            <div>
+            <div className="create-post">
                 <section className="post-title">
                     <input type="text" onChange={(e)=> setPostTitle(e.target.value)} placeholder="Write a catchy title..."/>
                 </section>
                     
 
                 <section className="select-categ">
-                    <input type="text" onChange={(e)=> setQuery(e.target.value)} onFocus={()=> setIsFocused(true)}/>
+                    <input type="text" placeholder="Select a category for your post" onChange={(e)=> setQuery(e.target.value)} onFocus={()=> setIsFocused(true)}/>
                     {   
                         isFocused?
 
@@ -130,7 +131,12 @@ function CreatePost(){
                 </section>
                         
                 <section className="post-content">
-                    <input type="text" onChange={(e)=> setPostContent(e.target.value)} placeholder="What do you want to talk about?"/>
+                    <MDEditor
+                        value={postContent}
+                        onChange={setPostContent}
+                        preview='edit'
+                        height={400}
+                    />
                 </section>
                 
                 <button onClick={createPost}>Post</button>
