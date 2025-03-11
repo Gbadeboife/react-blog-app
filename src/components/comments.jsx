@@ -16,7 +16,7 @@ function CommentList({commentIds}) {
 
     
     return (
-      <div className="">
+      <div className="comment-list">
         {filteredComments.map((comment, index) => (
         <div className="" key='index'>
             <img src="" alt="" />
@@ -96,7 +96,7 @@ function Comments({showError, commentIds}) {
 
 
     return (
-        <div className="">
+        <div className="comments">
             <h2 className="">Comments</h2>
             <CommentList commentIds={commentIds}/>
             <CommentForm showError={showError}/>
