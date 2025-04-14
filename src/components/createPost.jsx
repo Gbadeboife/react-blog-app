@@ -109,7 +109,7 @@ function CreatePost(){
                     
 
                 <section className="select-categ">
-                    <input type="text" placeholder="Select a category for your post" onChange={(e)=> setQuery(e.target.value)} onFocus={()=> setIsFocused(true)}/>
+                    <input type="text" placeholder="Select a category for your post" onChange={(e)=> setQuery(e.target.value)} onFocus={()=> setIsFocused(true)} value={postCateg}/>
                     {   
                         isFocused?
 
@@ -139,7 +139,7 @@ function CreatePost(){
                     />
                 </section>
                 
-                <button onClick={createPost}>Post</button>
+                <button disabled={postTitle && postContent} onClick={createPost}>Post</button>
  
             </div>
     )

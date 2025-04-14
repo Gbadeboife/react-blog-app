@@ -573,11 +573,15 @@ a{
   padding: 10px 20px;
   font-size: 50px;
   margin-bottom: 20px;
+  color: white;
   border-radius: 10px;
 }
 
 .create-post .select-categ input{
-  padding: 3px 5px;
+  padding: 5px 10px;
+  width: 100%;
+  border: none;
+  font-size: 15px;
   outline: none;
   background-color: transparent;
   color: white;
@@ -592,9 +596,21 @@ a{
   margin-left: 10px;
   border-radius: 5px;
   border: none;
-  background-color: blue;
+  cursor: pointer;
+  background-color: black;
   color: white;
 }
+
+.create-post button{
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
 
 /*   Markdown Editor   */
 .markdown-editor {
@@ -650,8 +666,11 @@ a{
   outline: none;
   padding-left: 5px;
   border-radius: 5px;
-  border: 1px solid #ccc;
   font-size: 16px;
+  background-color: #333;
+  outline: none;
+  color: white;
+  border: none;
 } 
 
 .comments button{
@@ -962,6 +981,12 @@ a{
   .comments button{
     font-size: 13px;
   }
+
+  .post-header h1{
+    font-size: 40px;
+    line-height: 45px;
+  }
+
 }
 
 
@@ -1048,6 +1073,10 @@ a{
     width: 90%;
   }
 
+  .post-page{
+    padding-top: 0;
+  }
+
   .post-header h1{
     font-size: 30px;
     line-height: 35px;
@@ -1062,6 +1091,13 @@ a{
     width: 95%;
   }
 
+  .post-page .post-text{
+    font-size: 14px;
+  }
+
+  .post-header .post-image img{
+    margin-bottom: 20px;
+  }
   
   .post-header .author-info h5{
     font-size: 14px;
@@ -1069,5 +1105,14 @@ a{
 
   .post-header .post-metadata{
     font-size: 13px;
+  }
+
+  .comments{
+    padding-top: 0;
+  }
+
+  .comments h2{
+    font-size: 20px;
+    margin-bottom: 15px;
   }
 }
