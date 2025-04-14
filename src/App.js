@@ -18,6 +18,7 @@ import ErrorMessage from './components/errorMessage';
 import Dashboard from './components/dashboard';
 import Comments from './components/comments';
 import Profile from './components/profile';
+import NotFound from './components/NotFound';
 
 import { selectAllPosts } from './features/allPosts/allPostsSlice';
 import { useSelector } from 'react-redux';
@@ -82,6 +83,7 @@ function App() {
             <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='user/:username' element={<Profile/>}/>
           </Route>
+          <Route path='*' element={<NotFound />} />
         </Routes>
     </Router>
   );
