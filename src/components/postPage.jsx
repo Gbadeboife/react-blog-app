@@ -31,6 +31,7 @@ function PostPage({ fetchAuthor, showError }) {
     useEffect(() => {
         const loadPost = async () => {
             try {
+                console.log(allPosts)
                 const foundPost = allPosts.find((p) => 
                     p.title === postTitle
                 )

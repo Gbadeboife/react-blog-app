@@ -631,11 +631,6 @@ a{
 }
 
 
-/*   Comments   */
-
-.comments{
-
-}
 
 
 /*   Comments   */
@@ -643,10 +638,6 @@ a{
   padding-top: 30px;
 }
 
-.comments h2{
-  margin-bottom: 20px;
-  font-size: 23px;
-}
 
 .comments textarea{
   max-width: 100%;
@@ -840,6 +831,8 @@ a{
   .post-header .post-categ{
     margin-bottom: 30px;
   }
+
+
 }
 
 
@@ -958,6 +951,16 @@ a{
 
   .post-header .post-metadata{
     font-size: 14px;
+  }
+
+  .comments textarea{
+    font-size: 14px;
+    min-height: 20px;
+    max-height: 50px;
+  }
+  
+  .comments button{
+    font-size: 13px;
   }
 }
 
