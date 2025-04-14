@@ -13,56 +13,43 @@ import Header from "./header";
 
 
 function Stats({userPosts}){
-    const sumLikes = (userPosts) => {
+    const sumLikes = () => {
         return userPosts.reduce((sum, item) => sum + (item.likedBy?.length || 0), 0)
     }
  
-    const sumComments = (userPosts) => {
+    const sumComments = () => {
          return userPosts.reduce((sum, item) => sum + (item.commentIds?.length || 0), 0)
     }
  
-    const sumViews = (userPosts) => {
+    const sumViews = () => {
          return userPosts.reduce((sum, item) => sum + (item.views), 0)
     }
+    console.log(sumViews())
 
     return(
         <div className="stats">
             <div className="likes">
-                <h5>{sumLikes}</h5>
+                <h5>{sumLikes()}</h5>
                 <p>Total post likes</p>
             </div>
 
             <div className="comments">
-                <h5>{sumComments}</h5>
+                <h5>{sumComments()}</h5>
                 <p>Total post comments</p>
             </div>
 
             <div className="views">
-                <h5>{sumViews}</h5>
+                <h5>{sumViews()}</h5>
                 <p>Total post views</p>
             </div>
         </div>
     )
 }
 
-function SideBar({setDisp}){
-    return(
-        <nav>
-            <ul>
-                <li onClick={()=>{setDisp('posts')}}>Posts</li>
-                <li onClick={()=>{setDisp('drafts')}}>Drafts</li>
-                <li onClick={()=>{setDisp('notis')}}>Notifications</li>
-            </ul>
-        </nav>
-    )
-}
-
-
 
 
 function Dashboard({showError}){
 
-    const [disp, setDisp]= useState('posts')
     const [userPosts,setUserPosts]= useState([])
     const [sortBy, setSortBy]= useState('recent')
 
@@ -117,6 +104,7 @@ function Dashboard({showError}){
             {user?
                 (
                 <section className="dashboard">
+                    <h1>Dashboard</h1>
 
                     {isLoading && <p>Loading your posts...</p>}
 
@@ -125,71 +113,57 @@ function Dashboard({showError}){
                     )}
                 
                 {!isLoading && !error && (
-                    <>
-                    <h1>Dashboard</h1>
+                    <div className="dashboard-content">
 
-                    <Stats userPosts={userPosts}/>
-                    
-                    <section>
-                        <SideBar setDisp={setDisp}/>
+                        <Stats userPosts={userPosts}/>
+                        
+                        <section className="posts-list">
 
-                        <div className="posts-list">
-                            {disp === 'posts' ? (
-                                    <div className="posts">
-                                        <div>
-                                            <h4>Posts</h4>
-                                            <select name="" id="" onChange={changeSortType}>
-                                                <option value="recent">Most Recent</option>
-                                                <option value="views">Most views</option>
-                                                <option value="likes">Most likes</option>
-                                                <option value="comments">Most comments</option>
-                                            </select>
+                            <div >
+                                {(
+                                        <div className="posts">
+                                            <div>
+                                                <h4>Posts</h4>
+                                                <select name="" id="" onChange={changeSortType}>
+                                                    <option value="recent">Most Recent</option>
+                                                    <option value="views">Most views</option>
+                                                    <option value="likes">Most likes</option>
+                                                    <option value="comments">Most comments</option>
+                                                </select>
+                                            </div>
+
+                                            <div>
+                                                {
+                                                    userPosts?.map((post, index)=>{
+                                                        return(
+                                                            <div className="dash-post" key={index}>
+                                                                <div className="info">
+                                                                    <h5>{post.title}</h5>
+                                                                    <span>Published: {post.publishDate}</span>
+                                                                    <span>Edited: {post.editDate}</span>
+                                                                </div>
+
+                                                                <div className="stats">
+                                                                    <span>{post.likes}</span>
+                                                                    <span>{post.commentIds.length}</span>
+                                                                    <span>{post.views}</span>
+                                                                </div>
+
+                                                                <div className="options">
+                                                                    <Link to={`/post/${post.title}-${post.postId}/edit`}></Link>
+                                                                    <button onClick={()=>{deletePost(post.postId)}}></button>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
                                         </div>
-
-                                        <div>
-                                            {
-                                                userPosts?.map((post, index)=>{
-                                                    return(
-                                                        <div className="dash-post" key={index}>
-                                                            <div className="info">
-                                                                <h5>{post.title}</h5>
-                                                                <span>Published: {post.publishDate}</span>
-                                                                <span>Edited: {post.editDate}</span>
-                                                            </div>
-
-                                                            <div className="stats">
-                                                                <span>{post.likes}</span>
-                                                                <span>{post.commentIds.length}</span>
-                                                                <span>{post.views}</span>
-                                                            </div>
-
-                                                            <div className="options">
-                                                                <Link to={`/post/${post.title}-${post.postId}/edit`}></Link>
-                                                                <button onClick={()=>{deletePost(post.postId)}}></button>
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    </div>
-                                ) 
-
-                                :
-                                
-                                disp === 'notis' ? (
-                                    <div className="notis">
-                                        <h4>Notifications</h4>
-                                        
-                                    </div>
-                                )
-
-                                :(
-                                    navigate('/')
-                                )}
+                                    ) 
+                                }
                             </div>
                         </section>
-                    </>
+                    </div>
                 )}
             </section>
             )

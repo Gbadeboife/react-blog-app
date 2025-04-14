@@ -80,7 +80,7 @@ function App() {
             <Route path='category/:category' element={<CategPosts fetchAuthor={fetchAuthor} />}/>
             <Route path='post/:postTitle' element={<PostPage fetchAuthor={fetchAuthor}/>}/>
             <Route path='create' element={<CreatePost/>}/>
-            <Route path='dashboard' element={<Dashboard/>}/>
+            <Route path='dashboard' element={<Dashboard showError={showError}/>}/>
             <Route path='user/:username' element={<Profile/>}/>
           </Route>
           <Route path='*' element={<NotFound />} />

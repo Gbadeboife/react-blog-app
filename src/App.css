@@ -471,6 +471,43 @@ a{
   background-color: #2980b9;
 }
 
+/*   Dashboard  */
+.dashboard{
+  width: 70%;
+  display: flex;
+  margin: auto;
+}
+
+.dashboard h1{
+  font-size: 30px;
+  margin-bottom: 20px;  
+}
+
+.stats{
+  flex: 1;
+  margin-right: 5%;
+  margin-bottom: 30px;
+} 
+
+.stats div{
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 15px 10px;
+  background-color: #666;
+}
+
+.stats div h5{
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.posts-list{
+  flex: 4;
+}
+
+
 /*   Sidebar   */
 .side-bar{
   width: 29%;
@@ -832,8 +869,10 @@ a{
   }
   .logo a{
     width: 100%;
-    font-size: 20px;
+    font-size: 25px;
     height: 100%;
+  }
+  .search{
   }
 
   .search input{
