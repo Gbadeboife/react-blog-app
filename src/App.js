@@ -73,7 +73,7 @@ function App() {
         <ErrorMessage errMessage={errMessage} />
         <Routes>
           <Route path='/sign-in' element={<SignIn showError= {showError}/>}/>
-          <Route path='/sign-up' element={<SignUp showError= {showError}/>}/>
+          <Route path='/signup' element={<SignUp showError= {showError}/>}/>
           <Route path='/' element={<Layout/>}>
             <Route index element={<Home fetchAuthor={fetchAuthor} showError= {showError}/>}/>
             <Route path='search/:searchTerm' element={<SearchResults fetchAuthor={fetchAuthor} showError= {showError}/>}/>
