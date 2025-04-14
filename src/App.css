@@ -637,6 +637,46 @@ a{
 
 }
 
+
+/*   Comments   */
+.comments {
+  padding-top: 30px;
+}
+
+.comments h2{
+  margin-bottom: 20px;
+  font-size: 23px;
+}
+
+.comments textarea{
+  max-width: 100%;
+  min-width: 100%;
+  padding-top: 5px;
+  min-height: 30px;
+  margin-bottom: 5px;
+  max-height: 80px;
+  color: black;
+  outline: none;
+  padding-left: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+} 
+
+.comments button{
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.comments button:hover{
+  background-color: rgb(62, 62, 172);
+}
+
 .comments h2{
   font-size: 24px;
   margin-bottom: 20px;
