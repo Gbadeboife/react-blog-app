@@ -474,8 +474,11 @@ a{
 /*   Dashboard  */
 .dashboard{
   width: 70%;
-  display: flex;
   margin: auto;
+}
+.dashboard-content{
+  display: flex;
+
 }
 
 .dashboard h1{
