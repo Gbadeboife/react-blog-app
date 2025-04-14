@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Change the background color of the Markdown editor */
+.w-md-editor {
+    background-color: black !important; /* Ensure the editor's background changes */
+    color: white;
+}
+
+/* Ensure the text color in the Markdown editor's input area is white */
+.w-md-editor-text-input {
+    background-color: black !important; /* Ensure the input area matches the editor */
+    color: white !important; /* Force the text color to be white */
+    caret-color: white !important; /* Ensure the caret (cursor) is visible */
+}
+
+.w-md-editor-text-pre {
+    background-color: black !important; /* Ensure the preview area matches */
+    color: white !important; /* Adjust text color for better visibility */
+}

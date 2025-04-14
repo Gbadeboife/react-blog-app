@@ -24,7 +24,7 @@ function CreatePost(){
     const userCollectionRef= collection(db, 'users')
     const postsCollectionRef= collection(db, 'posts')
     const navigate= useNavigate()
-
+    const [postBtnStatus, setPostBtnStatus]= useState('Post')
     const user= useSelector(selectUser)
     const categories= useSelector(selectCategories)
 
@@ -75,8 +75,12 @@ function CreatePost(){
                 publishDate: getDate()
             }
             try{
+                setPostBtnStatus('Loading...')
                 await addDoc(postsCollectionRef, post)
+                navigate('/dashboard')
             } catch {
+                setPostBtnStatus('Failed')
+                setTimeout(()=> setPostBtnStatus('Post'), 2000)
                 showError('An error occurred, try again!')
             }
 
@@ -139,7 +143,7 @@ function CreatePost(){
                     />
                 </section>
                 
-                <button disabled={postTitle && postContent} onClick={createPost}>Post</button>
+                <button disabled={!(postTitle && postContent)} onClick={createPost}>{postBtnStatus}</button>
  
             </div>
     )

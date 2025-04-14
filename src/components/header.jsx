@@ -96,7 +96,7 @@ function Header(){
                 <FontAwesomeIcon icon={faMagnifyingGlass} onClick={toggleSearchBar} className="search-icon"/>
                 <form action="" onSubmit={submitSearchTerm} ref={searchRef}>
                     {
-                        browserWidth>700 || searchOpen?
+                        browserWidth > 700 || searchOpen?
                         (<input type="text" value={searchTerm} placeholder="Search for posts..." onChange={(e)=> setSearchTerm(e.target.value)}/>)
                         :
                         null
@@ -121,7 +121,7 @@ function Header(){
                                     <div className="prof-menu">
                                         <ul>
                                             <li>
-                                                <Link to={`/${user.name}`}>Profile</Link>
+                                                <Link to={`/${user.username}`}>Profile</Link>
                                             </li>
 
                                             <li>

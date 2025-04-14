@@ -1,4 +1,3 @@
-
 *{
   margin: 0;
   box-sizing: border-box;
@@ -589,7 +588,6 @@ a{
 }
 .create-post .categories{
   display: flex;
-  
 }
 .create-post .categories button{
   padding: 5px 10px;
@@ -609,6 +607,9 @@ a{
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
+}
+.create-post .post-content{
+  color: white;
 }
 
 
@@ -644,6 +645,18 @@ a{
 .create-post .post-content .w-md-editor-text-input {
   font-size: 16px !important;
   line-height: 1.5 !important;
+}
+
+/* Ensure the text color in the Markdown editor is visible */
+.w-md-editor-text-input {
+    background-color: black !important; /* Match the editor's background */
+    color: white !important; /* Ensure the text is visible */
+    caret-color: white !important; /* Ensure the caret (cursor) is visible */
+}
+
+.w-md-editor-text-pre {
+    background-color: black !important; /* Match the preview area's background */
+    color: white !important; /* Ensure the preview text is visible */
 }
 
 
@@ -895,7 +908,7 @@ a{
   }
 
   .sign-in p, .sign-up p{
-    font-size: 14px;
+    font-size: 14px.
   }
 
   .show, .hide{
