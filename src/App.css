@@ -816,8 +816,8 @@ div.create-post{
 
 
 .profile {
-  width: 80%px;
-  margin: 2rem auto;
+  width: 80%;
+  margin: 2rem auto;  
   padding: 20px;
 }
 
@@ -857,7 +857,7 @@ div.create-post{
   font-size: 14px;
 }
 
-  
+
 
 
 /* RESPONSIVE CODE*/
@@ -918,8 +918,6 @@ div.create-post{
     width: 100%;
     font-size: 25px;
     height: 100%;
-  }
-  .search{
   }
 
   .search input{
@@ -1004,6 +1002,15 @@ div.create-post{
     margin-bottom: 30px;
   }
 
+  .profile figure {
+    width: 50px;
+    height: 50px;    
+  }
+
+  .profile .user-info h1 {
+    font-size: 35px;
+    margin-bottom: 5px;
+  }
 
 }
 
@@ -1268,4 +1275,14 @@ div.create-post{
     font-size: 20px;
     margin-bottom: 15px;
   }
+
+  .profile{
+    width: 90%;
+  }
+  
+  .profile figure {
+    margin-bottom: 15px;
+  }
+  .profile .user-info h1 {
+
 }
