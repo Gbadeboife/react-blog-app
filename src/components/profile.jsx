@@ -46,9 +46,6 @@ function Profile(){
                 setUser(null);
             }
 
-
-
-
         };
     
 
@@ -62,7 +59,6 @@ function Profile(){
                     return post.authorId === user.userId;
                 });
                 setPosts(userPosts);
-                console.log(userPosts)
             };
 
             fetchUserPosts();
