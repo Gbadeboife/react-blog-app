@@ -32,8 +32,6 @@ function Profile(){
                 if (!querySnapshot.empty) {
                     // Get the first matching user document
                     const userDoc = querySnapshot.docs[0];
-                    console.log(userDoc.data())
-                    console.log(userDoc.id)
                     setUser({
                         userId: userDoc.id, 
                         ...userDoc.data()
@@ -64,6 +62,7 @@ function Profile(){
                     return post.authorId === user.userId;
                 });
                 setPosts(userPosts);
+                console.log(userPosts)
             };
 
             fetchUserPosts();
