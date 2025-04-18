@@ -14,7 +14,7 @@ function Profile(){
 
     const {username}= useParams()
     const [user, setUser]= useState()
-    const [posts, setPosts]= useState()
+    const [posts, setPosts] = useState([])  // Change posts to state
     
     const allPosts= useSelector(selectAllPosts).posts
 
@@ -58,7 +58,7 @@ function Profile(){
                 const userPosts = allPosts.filter((post) => {
                     return post.authorId === user.userId;
                 });
-                setPosts(userPosts);
+                setPosts(userPosts)  // Set posts state instead of direct assignment
             };
 
             fetchUserPosts();
@@ -81,52 +81,50 @@ function Profile(){
             </div>
 
             <div>
-                {posts?.map((post, index)=>{
-                   (
-                        <Link key={index} to={`/post/${post.title}`}>
-                            <div className="post">
-                                <div className="top-row">
-                                    {
+                {posts?.length > 0 && posts.map((post, index)=> (  // Remove extra parentheses, add null check
+                    <Link key={index} to={`/post/${post.title}`}>
+                        <div className="post">
+                            <div className="top-row">
+                                {
 
-                                    post.authorImg? (
-                                        <figure>
-                                            <img src={post.authorImg} alt="" />
-                                        </figure>
-                                    ) : (
-                                        <div className="avatar">
-                                            {post.author?.charAt(0).toUpperCase()}
-                                        </div>
-                                    )}
+                                post.authorImg? (
+                                    <figure>
+                                        <img src={post.authorImg} alt="" />
+                                    </figure>
+                                ) : (
+                                    <div className="avatar">
+                                        {post.author?.charAt(0).toUpperCase()}
+                                    </div>
+                                )}
 
-                                        <span className="name">{post.author}</span>
-                                        
-                                        <span className="date">{post.publishDate}</span>
-                                </div>
-
-                                <div className="post-info">
-                                        <div className="post-text">
-                                                <h2>{post.title}</h2>
-                                                <p>{post.content.slice(0,150)}</p>
-                                        </div>
-
-                                        {
-                                            post.image && 
-                                                <figure className="post-img">
-                                                    <img src="" alt=""/>
-                                                </figure>
-                                        }
-                                </div>
-
-                                <div className="bottom-row">
-                                            <span className= 'categ'><Link to={`category/${post.category}`}>{post.category}</Link></span>
-
-                                            <span><FontAwesomeIcon icon={faHeart} /> {post.likedBy.length} Likes</span>
-                                </div>
-
+                                    <span className="name">{post.author}</span>
+                                    
+                                    <span className="date">{post.publishDate}</span>
                             </div>
+
+                            <div className="post-info">
+                                    <div className="post-text">
+                                            <h2>{post.title}</h2>
+                                            <p>{post.content.slice(0,150)}</p>
+                                    </div>
+
+                                    {
+                                        post.image && 
+                                            <figure className="post-img">
+                                                <img src="" alt=""/>
+                                            </figure>
+                                    }
+                            </div>
+
+                            <div className="bottom-row">
+                                        <span className= 'categ'><Link to={`category/${post.category}`}>{post.category}</Link></span>
+
+                                        <span><FontAwesomeIcon icon={faHeart} /> {post.likedBy.length} Likes</span>
+                            </div>
+
+                        </div>
                     </Link>
-                   ) 
-                })}
+                ))}
             </div>
         </section>
 

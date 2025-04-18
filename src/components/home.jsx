@@ -17,7 +17,6 @@ import { Link } from "react-router-dom";
 function Home({fetchAuthor}){
     
     const posts= useSelector(selectAllPosts).posts
-    console.log(posts)
     const savePost= (postId)=>{
         console.log('saved')
     }
