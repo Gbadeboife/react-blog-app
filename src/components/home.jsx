@@ -3,15 +3,11 @@ import React, {useState} from "react";
 import Header from "./header";
 import CategorySelect from "./categorySelect";
 import PopularPosts from "./popularPosts";
-
+import Post from "./post"; 
 
 import { selectAllPosts } from "../features/allPosts/allPostsSlice";
 import {useDispatch, useSelector} from 'react-redux'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
-
-import { Link } from "react-router-dom";
 
 
 function Home({fetchAuthor}){
@@ -28,53 +24,9 @@ function Home({fetchAuthor}){
             <section className="home">
                 <h1 className="page-label">Home</h1>
                 {
-                    posts?.map((post, index)=>{
-
-                        return(
-                            <Link key={index} to={`/post/${post.title}`}>
-                                <div className="post">
-                                    <div className="top-row">
-                                        {
-
-                                        post.authorImg? (
-                                            <figure>
-                                                <img src={post.authorImg} alt="" />
-                                            </figure>
-                                        ) : (
-                                            <div className="avatar">
-                                                {post.author?.charAt(0).toUpperCase()}
-                                            </div>
-                                        )}
-
-                                        <span className="name">{post.author}</span>
-                                        
-                                        <span className="date">{post.publishDate}</span>
-                                    </div>
-
-                                    <div className="post-info">
-                                        <div className="post-text">
-                                                <h2>{post.title}</h2>
-                                                <p>{post.content.slice(0,150)}</p>
-                                        </div>
-
-                                        {
-                                            post.image && 
-                                                <figure className="post-img">
-                                                    <img src="" alt=""/>
-                                                </figure>
-                                        }
-                                    </div>
-
-                                    <div className="bottom-row">
-                                            <span className= 'categ'><Link to={`category/${post.category}`}>{post.category}</Link></span>
-
-                                            <span><FontAwesomeIcon icon={faHeart} /> {post.likedBy.length} Likes</span>
-                                    </div>
-
-                                </div>
-                            </Link>
-                        )
-                    })
+                    posts?.map((post, index)=>(
+                        <Post key={index} post={post}/>
+                    ))
                 }
             </section>
 
