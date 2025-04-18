@@ -82,9 +82,9 @@ function Profile(){
             </div>
 
             <div>
-                {posts?.map((post)=>{
+                {posts?.map((post, index)=>{
                    (
-                    <div className="post">
+                    <div key={index} className="post">
                         
                     </div>
                    ) 
