@@ -1154,6 +1154,9 @@ div.create-post{
 
 
 @media screen and (max-width: 700px){
+  body{
+    padding-top: 60px;
+  }
 
   .sign-in, .sign-up{
     padding: 50px 5% 0;
@@ -1279,10 +1282,15 @@ div.create-post{
   .profile{
     width: 90%;
   }
-  
+
   .profile figure {
     margin-bottom: 15px;
   }
   .profile .user-info h1 {
-
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+  .profile .user-info {
+  
+  margin-bottom: 15px;}
 }
