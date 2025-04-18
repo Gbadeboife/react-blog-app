@@ -835,35 +835,27 @@ div.create-post{
   object-fit: cover;
 }
 
-.user-info {
+.profile .user-info {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.user-info h1 {
+.profile .user-info h1 {
   font-size: 40px;
   margin-bottom: 10px;
 }
 
-.user-info h3 {
+.profile .user-info h3 {
   font-size: 18px;
   color: #666;
   margin-bottom: 1rem;
   font-weight: normal;
 }
 
-.user-info span {
+.profile .user-info span {
   color: #888;
   font-size: 14px;
 }
-
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 1rem;
-}
-
 
 
 
