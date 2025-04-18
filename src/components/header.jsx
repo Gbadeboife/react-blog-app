@@ -121,7 +121,7 @@ function Header(){
                                     <div className="prof-menu">
                                         <ul>
                                             <li>
-                                                <Link to={`/${user.username}`}>Profile</Link>
+                                                <Link to={`user/${user.username}`}>Profile</Link>
                                             </li>
 
                                             <li>

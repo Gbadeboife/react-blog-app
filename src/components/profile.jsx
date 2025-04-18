@@ -17,7 +17,6 @@ function Profile(){
 
     useEffect(() => {
         const fetchUser = async () => {
-
             try {
                 const userQuery = query(
                     collection(db, 'users'), 
@@ -29,11 +28,12 @@ function Profile(){
                 if (!querySnapshot.empty) {
                     // Get the first matching user document
                     const userDoc = querySnapshot.docs[0];
+                    console.log(userDoc.data())
+                    console.log(userDoc.id)
                     setUser({
                         userId: userDoc.id, 
                         ...userDoc.data()
                     });
-                    console.log('sjhdjk')
                 } else {
                     // Handle case where no user is found
                     setUser(null);
@@ -43,18 +43,28 @@ function Profile(){
                 console.error('Error while loading user:', error);
                 setUser(null);
             }
+
+
+
+
         };
     
-        const fetchUserPosts= ()=>{
-            const userPosts= allPosts.filter((post)=>{
-                return post.authorId === user.userId
-            })
-            setPosts(userPosts)
-        }
 
         fetchUser();
-        fetchUserPosts()
     }, [username])
+
+    useEffect(() => {
+        if (user) {
+            const fetchUserPosts = () => {
+                const userPosts = allPosts.filter((post) => {
+                    return post.authorId === user.userId;
+                });
+                setPosts(userPosts);
+            };
+
+            fetchUserPosts();
+        }
+    }, [user, allPosts]);
 
 
 
