@@ -486,6 +486,31 @@ a{
   width: 70%;
   border: 1px solid white;
   margin-right: 5%;
+  padding: 10px;
+}
+
+.dash-post .info{
+  border: 1px solid white;
+  width: 45%;
+  display: inline-block;
+}
+
+.dash-post .stats{
+  border: 1px solid white;
+  width: 20%;
+  display: inline-block;
+}
+
+.dash-post h5{
+  font-size: 20px;
+  line-height: 30px;
+  color: blue;
+  margin-bottom: 7px;
+}
+
+.dash-post span{
+  margin-right: 10px;
+  font-size: 14px;
 }
 
 .dashboard h1{
