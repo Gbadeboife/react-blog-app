@@ -13,7 +13,7 @@ import Header from "./header";
 function SearchResults({fetchAuthor}){
     const {searchTerm}= useParams()
     
-    const allPosts= useSelector(selectAllPosts).posts
+    const allPosts= useSelector(selectAllPosts)
     console.log(allPosts)
     const results= allPosts.filter((post)=>{
         return post.title.toLowerCase().includes(searchTerm.toLowerCase())

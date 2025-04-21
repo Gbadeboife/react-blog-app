@@ -12,7 +12,7 @@ import {useDispatch, useSelector} from 'react-redux'
 
 function Home({fetchAuthor}){
     
-    const posts= useSelector(selectAllPosts).posts
+    const posts= useSelector(selectAllPosts)
     const savePost= (postId)=>{
         console.log('saved')
     }

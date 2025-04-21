@@ -16,7 +16,7 @@ import Header from "./header";
 function CategPosts(){
     const {category}= useParams()
     
-    const allPosts= useSelector(selectAllPosts).posts
+    const allPosts= useSelector(selectAllPosts)
 
     const results= allPosts.filter((post)=>{
         return post.category === category

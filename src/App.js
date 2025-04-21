@@ -42,7 +42,7 @@ function App() {
 
 
   
-  console.log(useSelector(selectAllPosts).posts)
+  console.log(useSelector(selectAllPosts))
 
 
   const showError= (message)=>{

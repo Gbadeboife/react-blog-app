@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 function PopularPosts({fetchAuthor}){
     const [popPosts, setPopPosts]= useState([])
-    const posts= useSelector(selectAllPosts).posts
+    const posts= useSelector(selectAllPosts)
 
 
     useEffect(()=>{

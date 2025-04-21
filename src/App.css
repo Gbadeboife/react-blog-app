@@ -476,9 +476,15 @@ a{
   width: 70%;
   margin: auto;
 }
+
 .dashboard-content{
   display: flex;
+}
 
+.dash-post{
+  width: 70%;
+  border: 1px solid white;
+  margin-right: 5%;
 }
 
 .dashboard h1{

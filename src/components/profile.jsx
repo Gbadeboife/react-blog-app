@@ -18,7 +18,7 @@ function Profile(){
     const [user, setUser]= useState()
     const [posts, setPosts] = useState([])  // Change posts to state
     
-    const allPosts= useSelector(selectAllPosts).posts
+    const allPosts= useSelector(selectAllPosts)
 
 
     useEffect(() => {
