@@ -66,24 +66,30 @@ function Dashboard({showError}){
 
 
     useEffect(() => {
-        const fetchUserPosts = async () => {
-            try {
-                setIsLoading(true);
-                const posts = allPosts.filter((post) => {
-                    return post.authorId === user.userId
-                });
+        const fetchUserPosts = () => {
+            if (!user) {
+                setUserPosts([]);
+                setError(false);
+                setIsLoading(false);
+                return;
+            }
+            
+            setIsLoading(true);
+            const posts = allPosts.filter((post) => post.authorId === user.userId);
+            
+            if (!posts) {
+                showError("Failed to load posts");
+                setError(true);
+                setUserPosts([]);
+            } else {
                 setUserPosts(posts);
                 setError(false);
-            } catch (err) {
-                showError("Failed to load posts");
-                setUserPosts([]);
-            } finally {
-                setIsLoading(false);
             }
+            setIsLoading(false);
         };
 
         fetchUserPosts();
-    }, [allPosts]);
+    }, [user, allPosts, showError]);
 
 
     const deletePost= async(id)=>{
@@ -97,7 +103,7 @@ function Dashboard({showError}){
         }
     }
 
-
+    console.log(userPosts)
 
     return(
         <>
@@ -106,7 +112,7 @@ function Dashboard({showError}){
                 <section className="dashboard">
                     <h1>Dashboard</h1>
 
-                    {isLoading && <p>Loading your posts...</p>}
+                    {isLoading && (<p>Loading your posts...</p>)}
 
                     {error && (
                         <p>Error, refresh page</p>
@@ -134,8 +140,7 @@ function Dashboard({showError}){
 
                                             <div>
                                                 {
-                                                    userPosts?.map((post, index)=>{
-                                                        return(
+                                                    userPosts?.map((post, index)=>(
                                                             <div className="dash-post" key={index}>
                                                                 <div className="info">
                                                                     <h5>{post.title}</h5>
@@ -154,8 +159,8 @@ function Dashboard({showError}){
                                                                     <button onClick={()=>{deletePost(post.postId)}}></button>
                                                                 </div>
                                                             </div>
-                                                        )
-                                                    })
+                                                        
+                                                    ))
                                                 }
                                             </div>
                                         </div>

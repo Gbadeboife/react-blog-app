@@ -117,15 +117,9 @@ const defPosts= [
 
 const allPostsSlice= createSlice({
     name: 'allPosts',
-    initialState: {
-        posts: defPosts,
-        loadState: {
-            isLoading: false,
-            isFailed: false
-        }
-    },
+    initialState: defPosts,
     reducers: options,
-    extraReducers: (builder) => {
+    /*extraReducers: (builder) => {
         builder
             .addCase(fetchPosts.pending, (state) => {
                 state.loadState.isLoading = true;
@@ -141,7 +135,7 @@ const allPostsSlice= createSlice({
                 state.loadState.isLoading = false;
                 state.loadState.isFailed = true;
             });
-    }
+    }*/
     
 })
 
