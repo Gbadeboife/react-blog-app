@@ -501,6 +501,16 @@ a{
   display: inline-block;
 }
 
+.dash-post .stats span{
+  font-size: 14px;
+  margin-right: 13px;
+}
+
+.dash-post .stats span span{
+  margin-left: 3px;
+  margin-right: 0;
+}
+
 .dash-post h5{
   font-size: 20px;
   line-height: 30px;
