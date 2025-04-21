@@ -9,6 +9,9 @@ import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faHeart, faComment } from "@fortawesome/free-solid-svg-icons";
+
 import Header from "./header";
 
 
@@ -144,14 +147,25 @@ function Dashboard({showError}){
                                                             <div className="dash-post" key={index}>
                                                                 <div className="info">
                                                                     <h5>{post.title}</h5>
-                                                                    <span>Published: {post.publishDate}</span>
-                                                                    <span>Edited: {post.editDate}</span>
+                                                                    <span><strong>Published:</strong> {post.publishDate}</span>
+                                                                    {post.edited && <span><strong>Edited:</strong> {post.editDate}</span>}
                                                                 </div>
 
                                                                 <div className="stats">
-                                                                    <span>{post.likes}</span>
-                                                                    <span>{post.commentIds.length}</span>
-                                                                    <span>{post.views}</span>
+                                                                    <span>
+                                                                        <FontAwesomeIcon icon={faHeart} />
+                                                                        <span>{post.likedBy?.length || 0}</span>    
+                                                                    </span>
+
+                                                                    <span>
+                                                                        <FontAwesomeIcon icon={faComment} />
+                                                                        <span>{post.commentIds.length || 0}</span>
+                                                                    </span>
+                                                                    
+                                                                    <span>
+                                                                        <FontAwesomeIcon icon={faEye} />
+                                                                        <span>{post.views || 0}</span>
+                                                                    </span>
                                                                 </div>
 
                                                                 <div className="options">
