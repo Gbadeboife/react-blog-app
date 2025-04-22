@@ -169,8 +169,8 @@ function Dashboard({showError}){
                                                                 </div>
 
                                                                 <div className="options">
-                                                                    <Link to={`/post/${post.title}-${post.postId}/edit`}></Link>
-                                                                    <button onClick={()=>{deletePost(post.postId)}}></button>
+                                                                    <Link to={`/post/${post.title}-${post.postId}/edit`}>Edit</Link>
+                                                                    <button onClick={()=>{deletePost(post.postId)}}>Delete</button>
                                                                 </div>
                                                             </div>
                                                         
