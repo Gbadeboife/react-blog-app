@@ -506,10 +506,24 @@ a{
   margin-right: 13px;
 }
 
-.ddash-post .options span i{
-  font-size: 20px;
-  color: blue;
+.dash-post .options {
+  text-align: end;
+}
+
+.dash-post .options a{
+  font-size: 14px;
+  text-decoration: none;
+  margin-right: 13px;
 } 
+
+.dash-post .options button{
+  color: red;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 14px;
+}
 
 .dash-post .stats span span{
   margin-left: 3px;
