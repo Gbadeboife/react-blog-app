@@ -131,7 +131,7 @@ function Dashboard({showError}){
                             <div >
                                 {(
                                         <div className="posts">
-                                            <div>
+                                            <form>
                                                 <h4>Posts</h4>
                                                 <select name="" id="" onChange={changeSortType}>
                                                     <option value="recent">Most Recent</option>
@@ -139,9 +139,9 @@ function Dashboard({showError}){
                                                     <option value="likes">Most likes</option>
                                                     <option value="comments">Most comments</option>
                                                 </select>
-                                            </div>
+                                            </form>
 
-                                            <div>
+                                            <>
                                                 {
                                                     userPosts?.map((post, index)=>(
                                                             <div className="dash-post" key={index}>
@@ -176,7 +176,7 @@ function Dashboard({showError}){
                                                         
                                                     ))
                                                 }
-                                            </div>
+                                            </>
                                         </div>
                                     ) 
                                 }

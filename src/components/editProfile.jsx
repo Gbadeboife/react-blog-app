@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { db, storage } from "../firebase-config";
+import { db } from "../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { upload } from '@vercel/blob/client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
     faCameraRetro, 
@@ -84,15 +84,12 @@ function EditProfile() {
         if (!selectedImage) return profileData.profilePicture;
 
         try {
-            const storageRef = ref(
-                storage, 
-                `profilePictures/${profileData.username}_${Date.now()}`
-            );
+            const blob = await upload(selectedImage.name, selectedImage, {
+                access: 'public',
+                handleUploadUrl: '/api/upload', // You'll need to create this API endpoint
+            });
             
-            const snapshot = await uploadBytes(storageRef, selectedImage);
-            const downloadURL = await getDownloadURL(snapshot.ref);
-            
-            return downloadURL;
+            return blob.url;
         } catch (error) {
             console.error("Error uploading profile picture", error);
             return profileData.profilePicture;
