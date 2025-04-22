@@ -19,6 +19,8 @@ import Dashboard from './components/dashboard';
 import Comments from './components/comments';
 import Profile from './components/profile';
 import NotFound from './components/NotFound';
+import EditProfile from './components/editProfile';
+
 
 import { selectAllPosts } from './features/allPosts/allPostsSlice';
 import { useSelector } from 'react-redux';
@@ -82,6 +84,7 @@ function App() {
             <Route path='create' element={<CreatePost/>}/>
             <Route path='dashboard' element={<Dashboard showError={showError}/>}/>
             <Route path='user/:username' element={<Profile/>}/>
+            <Route path='settings/edit-profile' element={<EditProfile/>}/>
           </Route>
           <Route path='*' element={<NotFound />} />
         </Routes>
