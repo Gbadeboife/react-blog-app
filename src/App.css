@@ -506,6 +506,11 @@ a{
   margin-right: 13px;
 }
 
+.ddash-post .options span i{
+  font-size: 20px;
+  color: blue;
+} 
+
 .dash-post .stats span span{
   margin-left: 3px;
   margin-right: 0;
@@ -518,9 +523,15 @@ a{
   margin-bottom: 7px;
 }
 
-.dash-post span{
+.dash-post .info span{
   margin-right: 10px;
   font-size: 14px;
+}
+
+.dash-post .options{
+  border: 1px solid white;
+  display: inline-block;
+  width: 30%;
 }
 
 .dashboard h1{
