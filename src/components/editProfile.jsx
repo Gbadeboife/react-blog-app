@@ -1,21 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { db } from "../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
-import { upload } from '@vercel/blob/client';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-    faCameraRetro, 
-    faSave, 
-    faTimes 
-} from "@fortawesome/free-solid-svg-icons";
+import { faSave, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function EditProfile() {
     const navigate = useNavigate();
-    const fileInputRef = useRef(null);
     
-    // State for form fields
     const [profileData, setProfileData] = useState({
         name: "",
         username: "",
@@ -23,20 +16,12 @@ function EditProfile() {
         bio: "",
         location: "",
         website: "",
-        profilePicture: "",
     });
 
-    // State for image upload
-    const [selectedImage, setSelectedImage] = useState(null);
-    const [imagePreview, setImagePreview] = useState("");
-
-    // Load current user data on component mount
     useEffect(() => {
         const loadUserData = async () => {
             try {
-                // Fetch current user data from Redux or localStorage
                 const currentUser = JSON.parse(localStorage.getItem('user'));
-                
                 if (currentUser) {
                     setProfileData({
                         name: currentUser.name || "",
@@ -45,9 +30,7 @@ function EditProfile() {
                         bio: currentUser.bio || "",
                         location: currentUser.location || "",
                         website: currentUser.website || "",
-                        profilePicture: currentUser.profilePicture || "",
                     });
-                    setImagePreview(currentUser.profilePicture || "");
                 }
             } catch (error) {
                 console.error("Error loading user data", error);
@@ -57,7 +40,6 @@ function EditProfile() {
         loadUserData();
     }, []);
 
-    // Handle input changes
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setProfileData(prev => ({
@@ -66,64 +48,22 @@ function EditProfile() {
         }));
     };
 
-    // Handle image selection
-    const handleImageSelect = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            setSelectedImage(file);
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setImagePreview(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-
-    // Upload profile picture
-    const uploadProfilePicture = async () => {
-        if (!selectedImage) return profileData.profilePicture;
-
-        try {
-            const blob = await upload(selectedImage.name, selectedImage, {
-                access: 'public',
-                handleUploadUrl: '/api/upload', // You'll need to create this API endpoint
-            });
-            
-            return blob.url;
-        } catch (error) {
-            console.error("Error uploading profile picture", error);
-            return profileData.profilePicture;
-        }
-    };
-
-    // Save profile changes
     const handleSaveProfile = async (e) => {
         e.preventDefault();
 
         try {
-            // Upload profile picture if a new one is selected
-            const profilePictureUrl = await uploadProfilePicture();
-
-            // Update Firestore document
             const userDocRef = doc(db, 'users', profileData.username);
-            await updateDoc(userDocRef, {
-                ...profileData,
-                profilePicture: profilePictureUrl
-            });
+            await updateDoc(userDocRef, profileData);
 
-            // Update local storage
             const updatedUser = {
                 ...JSON.parse(localStorage.getItem('user')),
-                ...profileData,
-                profilePicture: profilePictureUrl
+                ...profileData
             };
             localStorage.setItem('user', JSON.stringify(updatedUser));
 
-            // Navigate back to profile page
             navigate(`/profile/${profileData.username}`);
         } catch (error) {
             console.error("Error saving profile", error);
-            // Optionally show error message to user
         }
     };
 
@@ -147,32 +87,10 @@ function EditProfile() {
                 </div>
             </div>
 
-            <div className="profile-picture-section">
-                <figure className="profile-picture">
-                    <img 
-                        src={imagePreview || '/default-avatar.png'} 
-                        alt="Profile" 
-                    />
-                    <button 
-                        className="change-picture-btn"
-                        onClick={() => fileInputRef.current.click()}
-                    >
-                        <FontAwesomeIcon icon={faCameraRetro} />
-                    </button>
-                    <input 
-                        type="file" 
-                        ref={fileInputRef}
-                        onChange={handleImageSelect}
-                        accept="image/*"
-                        style={{ display: 'none' }}
-                    />
-                </figure>
-            </div>
-
             <form className="edit-profile-form">
                 <div className="form-group">
                     <label htmlFor="name">Full Name</label>
-                    <input 
+                    <input
                         type="text" 
                         id="name"
                         name="name"
