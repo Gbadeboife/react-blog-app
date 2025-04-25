@@ -21,26 +21,7 @@ function EditProfile() {
         website: "",
     });
     
-    useEffect(() => {
-        const loadUserData = async () => {
-            try {
-                if (currentUser) {
-                    setProfileData({
-                        name: currentUser.name || "",
-                        username: currentUser.username || "",
-                        email: currentUser.email || "",
-                        bio: currentUser.bio || "",
-                        location: currentUser.location || "",
-                        website: currentUser.website || "",
-                    });
-                }
-            } catch (error) {
-                console.error("Error loading user data", error);
-            }
-        };
 
-        loadUserData();
-    }, []);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -96,7 +77,7 @@ function EditProfile() {
                         type="text" 
                         id="name"
                         name="name"
-                        value={profileData.name}
+                        value={user.name}
                         onChange={handleInputChange}
                         placeholder="Enter your full name"
                     />
@@ -108,7 +89,7 @@ function EditProfile() {
                         type="text" 
                         id="username"
                         name="username"
-                        value={profileData.username}
+                        value={user.username}
                         onChange={handleInputChange}
                         placeholder="Choose a unique username"
                     />
@@ -120,7 +101,7 @@ function EditProfile() {
                         type="email" 
                         id="email"
                         name="email"
-                        value={profileData.email}
+                        value={user.email}
                         onChange={handleInputChange}
                         placeholder="Enter your email"
                     />
@@ -131,15 +112,12 @@ function EditProfile() {
                     <textarea 
                         id="bio"
                         name="bio"
-                        value={profileData.bio}
+                        value={user.bio}
                         onChange={handleInputChange}
                         placeholder="Tell us about yourself"
                         maxLength={250}
                     />
                 </div>
-
-
-
 
             </form>
         </section>
