@@ -138,29 +138,9 @@ function EditProfile() {
                     />
                 </div>
 
-                <div className="form-group">
-                    <label htmlFor="location">Location</label>
-                    <input 
-                        type="text" 
-                        id="location"
-                        name="location"
-                        value={profileData.location}
-                        onChange={handleInputChange}
-                        placeholder="Your current city"
-                    />
-                </div>
 
-                <div className="form-group">
-                    <label htmlFor="website">Website</label>
-                    <input 
-                        type="url" 
-                        id="website"
-                        name="website"
-                        value={profileData.website}
-                        onChange={handleInputChange}
-                        placeholder="Your personal or professional website"
-                    />
-                </div>
+
+
             </form>
         </section>
     );
