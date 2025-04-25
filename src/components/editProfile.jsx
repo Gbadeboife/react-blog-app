@@ -5,9 +5,12 @@ import { db } from "../firebase-config";
 import { doc, updateDoc } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { selectUser } from "../features/user/userSlice";
+
 
 function EditProfile() {
     const navigate = useNavigate();
+    const user= useSelector(selectUser)
     
     const [profileData, setProfileData] = useState({
         name: "",
@@ -17,11 +20,10 @@ function EditProfile() {
         location: "",
         website: "",
     });
-
+    
     useEffect(() => {
         const loadUserData = async () => {
             try {
-                const currentUser = JSON.parse(localStorage.getItem('user'));
                 if (currentUser) {
                     setProfileData({
                         name: currentUser.name || "",
