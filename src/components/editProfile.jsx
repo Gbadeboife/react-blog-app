@@ -6,42 +6,52 @@ import { doc, updateDoc } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { selectUser } from "../features/user/userSlice";
+import { setUser } from "../features/user/userSlice";
+import { useDispatch } from "react-redux";
 
 
 function EditProfile() {
     const navigate = useNavigate();
     const user= useSelector(selectUser)
+    console.log(user)
+    const dispatch= useDispatch()
+    const [profileData, setProfileData] = useState({});
     
-    const [profileData, setProfileData] = useState({
-        name: "",
-        username: "",
-        email: "",
-        bio: "",
-        location: "",
-        website: "",
-    });
-    
+    useEffect(() => {
+        setProfileData({
+            name: user.name,
+            username: user.username,
+            email: user.email,
+            bio: user.bio
+        });
+    }, [user]);
+    console.log(profileData)
 
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setProfileData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        if (name !== 'email'){
+            setProfileData(prev => ({
+                ...prev,
+                [name]: value
+            }));
+        }
     };
 
     const handleSaveProfile = async (e) => {
         e.preventDefault();
 
         try {
-            const userDocRef = doc(db, 'users', profileData.username);
+            const userDocRef = doc(db, 'users', user.userId);
             await updateDoc(userDocRef, profileData);
 
+            
             const updatedUser = {
-                ...JSON.parse(localStorage.getItem('user')),
+                ...user,
                 ...profileData
             };
+            
+            dispatch(setUser({updatedUser}));
             localStorage.setItem('user', JSON.stringify(updatedUser));
 
             navigate(`/profile/${profileData.username}`);
@@ -77,7 +87,7 @@ function EditProfile() {
                         type="text" 
                         id="name"
                         name="name"
-                        value={user.name}
+                        value={profileData.name}
                         onChange={handleInputChange}
                         placeholder="Enter your full name"
                     />
@@ -89,7 +99,7 @@ function EditProfile() {
                         type="text" 
                         id="username"
                         name="username"
-                        value={user.username}
+                        value={profileData.username}
                         onChange={handleInputChange}
                         placeholder="Choose a unique username"
                     />
@@ -101,7 +111,7 @@ function EditProfile() {
                         type="email" 
                         id="email"
                         name="email"
-                        value={user.email}
+                        value={profileData.email}
                         onChange={handleInputChange}
                         placeholder="Enter your email"
                     />
@@ -112,7 +122,7 @@ function EditProfile() {
                     <textarea 
                         id="bio"
                         name="bio"
-                        value={user.bio}
+                        value={profileData.bio}
                         onChange={handleInputChange}
                         placeholder="Tell us about yourself"
                         maxLength={250}
