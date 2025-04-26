@@ -252,7 +252,7 @@ a{
   color: #B5B5B5;
   position: absolute;
   background-color: rgb(23, 23, 23);
-  z-index: 2;
+  z-index: 10;
   right: 0;
   top: 55px;
   width: 190px;
@@ -330,6 +330,13 @@ a{
 
 .no-posts{
   margin-top: 10px;
+}
+.no-posts a{
+  text-decoration: underline;
+}
+
+.no-posts a:hover{
+  color: blue;
 }
 
 .page-label{
@@ -1372,6 +1379,16 @@ div.create-post{
     line-height: 45px;
   }
 
+  div.create-post{
+    width: 80%;
+  }
+
+
+  .create-post .post-title input{
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+
 }
 
 
@@ -1516,6 +1533,19 @@ div.create-post{
     margin-bottom: 5px;
   }
   .profile .user-info {
-  
-  margin-bottom: 15px;}
+    margin-bottom: 15px;
+  }
+
+  div.create-post{
+    width: 95%;
+  }
+  .create-post .post-title input{
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  .create-post button{
+    font-size: 13px;
+    padding: 8px 15px;
+  }
 }
