@@ -24,7 +24,7 @@ function PostPage({ fetchAuthor, showError }) {
     const [author, setAuthor] = useState(null);
     const [isLiked, setIsLiked] = useState(false);
     const { postTitle } = useParams();
-    const allPosts = useSelector(selectAllPosts).posts;
+    const allPosts = useSelector(selectAllPosts);
 
     const user= useSelector(selectUser)
 
@@ -42,20 +42,21 @@ function PostPage({ fetchAuthor, showError }) {
                 // Fetch author details
                 const authorDetails = await fetchAuthor(foundPost.authorId)
                  
-
+                console.log(foundPost)
 
                 // Increment view count in Firestore
-                const postDocRef = doc(db, 'posts', foundPost.postId);
-                await updateDoc(postDocRef, {
+                if(foundPost.postId) {
+                    const postDocRef = doc(db, 'posts', foundPost.postId);
+                    await updateDoc(postDocRef, {
                     views: increment(1)
-                });
+                    });
+                }
+                // Check if the user has liked the pos
 
                 if(foundPost.likedBy.includes(user.userId)){
                     setIsLiked(true)
                 }
                 
-
-
                 // Update component state
                 setPost(foundPost);
                 setAuthor(authorDetails);
@@ -139,7 +140,7 @@ function PostPage({ fetchAuthor, showError }) {
                         <span>{post.publishDate}</span>
                         <div className="post-stats">
                             <FontAwesomeIcon icon={faHeart} /> <span>{post.likedBy?.length || 0} Likes</span>
-                            <FontAwesomeIcon icon={faComment} /> <span>{post.commentIds?.length || 0} Comments</span>
+                            <FontAwesomeIcon icon={faComment} /> <span>{post.commentIds?.length || 0} Comment{post.commentIds?.length !== 0 && 's'}</span>
                         </div>
                     </div>
                 </header>
