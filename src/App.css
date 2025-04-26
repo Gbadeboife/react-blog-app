@@ -1062,10 +1062,14 @@ div.create-post{
   margin: 0 auto 2rem;
 }
 
-.profile figure img {
+.profile figure span {
   width: 100%;
+  text-align: center;
   height: 100%;
-  object-fit: cover;
+  line-height: 50px;
+  display: block;
+  font-size: 30px;
+  background: linear-gradient(135deg, #667eea, #764ba2);;
 }
 
 .profile .user-info {
@@ -1522,7 +1526,7 @@ div.create-post{
   }
 
   .profile{
-    width: 90%;
+    width: 95%;
   }
 
   .profile figure {

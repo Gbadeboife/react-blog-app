@@ -59,7 +59,7 @@ function SignUp({showError}){
                 const user= {
                     name: name,
                     email: email,
-                    joined: new Date().toLocaleDateString(),
+                    date: new Date().toLocaleDateString(),
                     bio: ''
                 }
 
@@ -110,7 +110,7 @@ function SignUp({showError}){
                 name: name,
                 username: name.split(" ").join(""),
                 email: email,
-                joined: new Date().toLocaleDateString(),
+                date: new Date().toLocaleDateString(),
                 bio: ''
             }
 

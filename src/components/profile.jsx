@@ -73,7 +73,7 @@ function Profile(){
     return(
         <section className="profile">
             <figure>
-                <img src="" alt="" />
+                <span>{user?.name[0].toUpperCase()}</span>
             </figure>
 
             <div className="user-info">
