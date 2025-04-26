@@ -21,8 +21,6 @@ export const fetchPosts= createAsyncThunk('allPosts/fetchAllPosts', async ()=>{
 
 const options= {
 
-
-
     deleteCommentId: (state, action)=>{
         return state.forEach((post)=>{
             if(action.payload.postId === post.postId){
@@ -119,23 +117,21 @@ const allPostsSlice= createSlice({
     name: 'allPosts',
     initialState: defPosts,
     reducers: options,
-    /*extraReducers: (builder) => {
+    extraReducers: (builder) => {
         builder
             .addCase(fetchPosts.pending, (state) => {
-                state.loadState.isLoading = true;
-                state.loadState.isFailed = false;
+                console.log('fetching posts')
+                return state
             })
             .addCase(fetchPosts.fulfilled, (state, action) => {
-
-                state.posts= [...state.posts, ...action.payload]
-                state.loadState.isLoading = false;
-                state.loadState.isFailed = false;
+                state= [...state, ...action.payload]
+                return state
             })
             .addCase(fetchPosts.rejected, (state) => {
-                state.loadState.isLoading = false;
-                state.loadState.isFailed = true;
+                console.log('failed')
+                return state
             });
-    }*/
+    }
     
 })
 
