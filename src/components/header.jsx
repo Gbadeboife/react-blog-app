@@ -128,7 +128,6 @@ function Header(){
                                                 <Link to='/dashboard'>Dashboard</Link>
                                             </li>
 
-
                                             <li>
                                                 <Link to='/settings/edit-profile'>Settings</Link>
                                             </li>

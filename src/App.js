@@ -28,6 +28,7 @@ import SearchResults from './components/searchResults';
 import CategPosts from './components/categPosts';
 
 
+
 function App() {
   const dispatch= useDispatch()
   const [errMessage, setErrMessage]= useState('')

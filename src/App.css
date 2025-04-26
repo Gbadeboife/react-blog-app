@@ -918,9 +918,7 @@ div.create-post{
   border-radius: 5px;
   font-size: 16px;
 }
-.create-post .post-content{
-  color: white;
-}
+
 
 
 /*   Markdown Editor   */
@@ -941,6 +939,17 @@ div.create-post{
   min-height: 200px;
 }
 
+.wmde-markdown-var {
+  /* For light mode */
+  --color-canvas-default: #ffffff;
+  --color-fg-default: #000000;
+}
+
+[data-color-mode="dark"] .wmde-markdown-var {
+  /* For dark mode */
+  --color-canvas-default: #0d1117;
+  --color-fg-default: #ffffff;
+}
 
 .create-post .post-content {
   margin: 20px 0;
