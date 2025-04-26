@@ -67,6 +67,22 @@ function Dashboard({showError}){
         setSortBy(e.target.value)
     }
 
+    useEffect(() => {
+        const sortPosts = () => {
+            if (sortBy === 'recent') {
+                return [...userPosts].sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+            } else if (sortBy === 'views') {
+                return [...userPosts].sort((a, b) => b.views - a.views);
+            } else if (sortBy === 'likes') {
+                return [...userPosts].sort((a, b) => (b.likedBy?.length || 0) - (a.likedBy?.length || 0));
+            } else if (sortBy === 'comments') {
+                return [...userPosts].sort((a, b) => (b.commentIds?.length || 0) - (a.commentIds?.length || 0));
+            }
+            return userPosts;
+        };
+
+        setUserPosts(sortPosts());
+    }, [sortBy])
 
     useEffect(() => {
         const fetchUserPosts = () => {
