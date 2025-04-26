@@ -15,7 +15,12 @@ function EditProfile() {
     const user= useSelector(selectUser)
     console.log(user)
     const dispatch= useDispatch()
-    const [profileData, setProfileData] = useState({});
+    const [profileData, setProfileData] = useState({
+        name: user.name,
+        username: user.username,
+        email: user.email,
+        bio: user.bio
+    });
     
     useEffect(() => {
         setProfileData({
@@ -25,7 +30,6 @@ function EditProfile() {
             bio: user.bio
         });
     }, [user]);
-    console.log(profileData)
 
 
     const handleInputChange = (e) => {
@@ -52,6 +56,7 @@ function EditProfile() {
             };
             
             dispatch(setUser({updatedUser}));
+            console.log('user updated', updatedUser)
             localStorage.setItem('user', JSON.stringify(updatedUser));
 
             navigate(`/profile/${profileData.username}`);
@@ -87,7 +92,7 @@ function EditProfile() {
                         type="text" 
                         id="name"
                         name="name"
-                        value={profileData.name}
+                        value={profileData.name || ''}
                         onChange={handleInputChange}
                         placeholder="Enter your full name"
                     />
@@ -99,7 +104,7 @@ function EditProfile() {
                         type="text" 
                         id="username"
                         name="username"
-                        value={profileData.username}
+                        value={profileData.username || ''}
                         onChange={handleInputChange}
                         placeholder="Choose a unique username"
                     />
@@ -111,7 +116,7 @@ function EditProfile() {
                         type="email" 
                         id="email"
                         name="email"
-                        value={profileData.email}
+                        value={profileData.email || ''}
                         onChange={handleInputChange}
                         placeholder="Enter your email"
                     />
@@ -122,7 +127,7 @@ function EditProfile() {
                     <textarea 
                         id="bio"
                         name="bio"
-                        value={profileData.bio}
+                        value={profileData.bio || ''}
                         onChange={handleInputChange}
                         placeholder="Tell us about yourself"
                         maxLength={250}
