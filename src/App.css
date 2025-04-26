@@ -1138,12 +1138,9 @@ div.create-post{
     height: 60px;
   }
 
-  .logo{
-  }
   .logo a{
     width: 100%;
     font-size: 25px;
-    height: 100%;
   }
 
   .search input{
@@ -1300,6 +1297,7 @@ div.create-post{
 
   .search .search-icon{
       font-size: 18px;
+      
   }
 
   .header-links .create-post{
@@ -1325,6 +1323,7 @@ div.create-post{
     line-height: 23px;
     margin-bottom: 5px;
   }
+
 
   .post-page{
     width: 85%;
@@ -1438,7 +1437,7 @@ div.create-post{
   }
 
   .search .search-icon{
-    left: 70px;
+    left: 100px;
     top: -25px;
   }
 
