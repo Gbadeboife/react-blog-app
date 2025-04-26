@@ -73,7 +73,8 @@ function SearchResults({fetchAuthor}){
 
                 :
 
-                <h3 className="no-posts">No posts found</h3>
+                <h3 className="no-posts">No posts found. Go to <a href="/">home</a></h3>
+
             }
         </section>
         

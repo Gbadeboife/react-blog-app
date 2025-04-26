@@ -113,7 +113,7 @@ function Header(){
                     <div className="header-links">
                         <Link to='/create' className="create-post">Create Post</Link>
                         <figure onClick={()=> setMenuOpen(!menuOpen)} ref={menuRef}>
-                            <img src="" alt="" />
+                            <span>{user?.name[0].toUpperCase()}</span>
                             
                             {
                                 menuOpen?
