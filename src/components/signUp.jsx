@@ -58,7 +58,9 @@ function SignUp({showError}){
             try{
                 const user= {
                     name: name,
-                    email: email
+                    email: email,
+                    joined: new Date().toLocaleDateString(),
+                    bio: ''
                 }
 
                 if(await checkIfUserExists(email)){
@@ -107,7 +109,9 @@ function SignUp({showError}){
             const user= {
                 name: name,
                 username: name.split(" ").join(""),
-                email: email
+                email: email,
+                joined: new Date().toLocaleDateString(),
+                bio: ''
             }
 
             if(await checkIfUserExists(email)){
