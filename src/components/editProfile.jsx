@@ -13,7 +13,6 @@ import { useDispatch } from "react-redux";
 function EditProfile() {
     const navigate = useNavigate();
     const user= useSelector(selectUser)
-    console.log(user)
     const dispatch= useDispatch()
     const [profileData, setProfileData] = useState({
         name: user.name,
@@ -27,7 +26,7 @@ function EditProfile() {
             name: user.name,
             username: user.username,
             email: user.email,
-            bio: user.bio
+            bio: user.bio || ''
         });
     }, [user]);
 
@@ -44,7 +43,7 @@ function EditProfile() {
 
     const handleSaveProfile = async (e) => {
         e.preventDefault();
-
+        console.log(profileData)
         try {
             const userDocRef = doc(db, 'users', user.userId);
             await updateDoc(userDocRef, profileData);
@@ -59,7 +58,7 @@ function EditProfile() {
             console.log('user updated', updatedUser)
             localStorage.setItem('user', JSON.stringify(updatedUser));
 
-            navigate(`/profile/${profileData.username}`);
+            navigate(`/user/${profileData.username}`);
         } catch (error) {
             console.error("Error saving profile", error);
         }
