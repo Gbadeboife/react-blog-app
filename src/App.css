@@ -559,6 +559,7 @@ a{
 
 .dashboard .posts h4{
   font-size: 24px;
+  display: inline-block;
 }
 
 .dashboard .posts form{
@@ -1267,6 +1268,30 @@ div.create-post{
     margin-bottom: 5px;
   }
 
+  .stats{
+    margin-right: 3%;
+  }
+
+  .stats div h5{
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .stats div p{
+    font-size: 14px;
+  }
+
+  .dashboard h1{
+    font-size: 25px;
+  }
+
+  .dashboard .posts h4{
+    font-size: 21px;
+  }
+
+  .dash-post h5{
+    font-size: 19px;
+  }
 }
 
 
