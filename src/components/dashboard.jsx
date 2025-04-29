@@ -162,7 +162,9 @@ function Dashboard({showError}){
                                                     userPosts?.map((post, index)=>(
                                                             <div className="dash-post" key={index}>
                                                                 <div className="info">
-                                                                    <h5>{post.title}</h5>
+                                                                    <Link to={`/post/${post.title}`}>
+                                                                        <h5>{post.title}</h5>
+                                                                    </Link>
                                                                     <span><strong>Published:</strong> {post.publishDate}</span>
                                                                     {post.edited && <span><strong>Edited:</strong> {post.editDate}</span>}
                                                                 </div>
