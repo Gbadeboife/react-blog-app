@@ -836,6 +836,10 @@ a{
   margin-bottom: 20px;
   text-align: center;
 }
+.post-header a{
+  text-align: center;
+  display: block;
+}
 
 .post-header .post-categ{
   padding: 5px 12px;
@@ -844,7 +848,7 @@ a{
   left: 50%;
   z-index: -1;
   display: inline-block;
-  transform: translateX(-50px);
+  transform: translateX(-50%);
   background-color: grey;
   border-radius: 14px;
   margin-bottom: 40px;
@@ -858,7 +862,7 @@ a{
 }
 
 .post-header .author-info{
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   text-align: center;
 }
 
@@ -881,6 +885,10 @@ a{
 
 .post-header .post-metadata span{
   margin-right: 10px;
+}
+
+.post-header .post-stats{
+  margin-top: 10px;
 }
 
 
