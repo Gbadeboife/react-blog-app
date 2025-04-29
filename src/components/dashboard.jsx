@@ -128,6 +128,7 @@ function Dashboard({showError}){
         <>
             {user?
                 (
+                <section className="container">
                 <section className="dashboard">
                     <h1>Dashboard</h1>
 
@@ -202,6 +203,7 @@ function Dashboard({showError}){
                         </section>
                     </div>
                 )}
+            </section>
             </section>
             )
 
