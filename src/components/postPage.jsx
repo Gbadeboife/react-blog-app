@@ -137,7 +137,7 @@ function PostPage({ fetchAuthor, showError }) {
                     </div>
 
                     <div className="post-metadata">
-                        <span>{post.publishDate}</span>
+                        <span>Published {post.publishDate}</span>
                         <div className="post-stats">
                             <FontAwesomeIcon icon={faHeart} /> <span>{post.likedBy?.length || 0} Likes</span>
                             <FontAwesomeIcon icon={faComment} /> <span>{post.commentIds?.length || 0} Comment{post.commentIds?.length !== 0 && 's'}</span>
