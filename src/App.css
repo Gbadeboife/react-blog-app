@@ -5,6 +5,7 @@
 }
 
 body{
+  font-size: poppins, sans-serif;
   color: white;
   background-color: black;
   padding-top: 100px;  
@@ -98,7 +99,24 @@ a{
   text-align: center;
   font-size: 16px;
 }
+.sign-in figure, .sign-up figure{
+  width: 50%;
+  margin-right: 30px;
+  border-radius: 50px;
+  display: inline-block;
+}
 
+.sign-in figure img, .sign-up figure img{
+  width: 100%;
+}
+
+.form-container{
+  display: inline-block;
+}
+
+.sign-in{
+  border: 1px solid white;
+}
 
 .or {
   position: relative; 
@@ -1345,7 +1363,7 @@ div.create-post{
   }
 
   .sign-in p, .sign-up p{
-    font-size: 14px.
+    font-size: 14px;
   }
 
   .show, .hide{
@@ -1636,6 +1654,10 @@ div.create-post{
 
   .dash-post .options {
     width: 50%;
+  }
+
+  .dashboard .posts form{
+    margin-bottom: 35px;
   }
 
 }
