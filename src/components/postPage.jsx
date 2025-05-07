@@ -154,7 +154,7 @@ function PostPage({ fetchAuthor, showError }) {
                         </div>
                     ) : (
                         <div className="post-text">
-                            {post.content}
+                            <div dangerouslySetInnerHTML={{ __html: post.Content }} />
                         </div>
                     )}
                 </div>
