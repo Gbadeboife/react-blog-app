@@ -26,11 +26,11 @@ a{
 /*    SignIn and SignUp    */
 
 .sign-in, .sign-up{
-  display: block;
+  display: flex;
   min-height: 100vh;
   width: 100%;
   background-color: rgb(23, 23, 23);
-  padding: 50px 35% 0;
+  padding-top: 50px 15% 0;
   margin: auto;
 }
 
@@ -100,7 +100,7 @@ a{
   font-size: 16px;
 }
 .sign-in figure, .sign-up figure{
-  width: 50%;
+  width: 30%;
   margin-right: 30px;
   border-radius: 50px;
   display: inline-block;
@@ -112,6 +112,7 @@ a{
 
 .form-container{
   display: inline-block;
+  width: 30%;
 }
 
 .sign-in{
