@@ -119,32 +119,36 @@ function SignIn({showError}){
 
     return(
         <div className="sign-in">
-            <figure>
-                <img src="/signIn.png" alt="" />
-            </figure>
 
-            <div className="form-container">
+            <section>
+                <figure>
+                    <img src="/signIn.png" alt="" />
+                </figure>
 
-                <h1>Welcome Back!</h1>
-                <button className="google-auth" onClick={googleAuth}><FontAwesomeIcon className="google" icon={faGoogle}/>Continue with Google</button>
-                <span className="or">OR</span>
+                <div className="form-container">
 
-                <form action="">
-                    <input name="email" type="email" placeholder="Email" onChange= {(e)=> setEmail(e.target.value)}/>
-                    <div>
-                        <input name="password" type={showPassword ? "text" : "password"} placeholder="Password" onChange= {(e)=> setPassword(e.target.value)}/>
-                        {
-                            showPassword?
-                            <FontAwesomeIcon className="hide" icon={faEyeSlash} onClick={togglePassVis}/>
-                            :
-                            <FontAwesomeIcon className="show" icon={faEye} onClick={togglePassVis}/>
-                        }
+                    <h1>Welcome Back!</h1>
+                    <button className="google-auth" onClick={googleAuth}><FontAwesomeIcon className="google" icon={faGoogle}/>Continue with Google</button>
+                    <span className="or">OR</span>
+
+                    <form action="">
+                        <input name="email" type="email" placeholder="Email" onChange= {(e)=> setEmail(e.target.value)}/>
+                        <div>
+                            <input name="password" type={showPassword ? "text" : "password"} placeholder="Password" onChange= {(e)=> setPassword(e.target.value)}/>
+                            {
+                                showPassword?
+                                <FontAwesomeIcon className="hide" icon={faEyeSlash} onClick={togglePassVis}/>
+                                :
+                                <FontAwesomeIcon className="show" icon={faEye} onClick={togglePassVis}/>
+                            }
+                        </div>
+                        <button type="submit" className='submit' onClick={handleSubmit}>Sign In</button>
+                        <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+                    </form>
+
                     </div>
-                    <button type="submit" className='submit' onClick={handleSubmit}>Sign In</button>
-                    <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
-                </form>
 
-                </div>
+                </section>
             </div>
     )
 }
